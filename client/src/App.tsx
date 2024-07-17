@@ -15,9 +15,9 @@ function App() {
     document.addEventListener('theme', function (e: Event) {
       if (!isCustomEvent(e))
         throw new Error('not a custom event');
-      setTheme(e.detail)
+      setTheme(e.detail);
     })
-  }, [])
+  }, []);
 
   return (
     <div className="App" data-theme={theme}>
