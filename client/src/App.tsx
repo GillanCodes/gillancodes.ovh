@@ -8,7 +8,9 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <Routes />
+      <div className="container">
+        <Routes />
+      </div>
     </div>
   );
 }

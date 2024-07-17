@@ -5,6 +5,4 @@
 @import "./utils/themes";
 @import "./utils/settings";
 
-.test{
-    background-color: var(--prim);
-}
+@import './components/components';

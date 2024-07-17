@@ -4,3 +4,22 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }
+
+.App
+{
+    // background: linear-gradient(38deg, rgba(63,46,173,1) 15%, rgba(125,115,193,1) 100%);;
+    background: linear-gradient(45deg ,var(--grad-btm), var(--grad-top));
+    min-height: 100dvh;
+}
+
+.container
+{
+    margin: auto;
+}
+
+@media screen and (min-width: 1150px) {
+    .container 
+    {
+        width: 1150px;
+    }
+}
