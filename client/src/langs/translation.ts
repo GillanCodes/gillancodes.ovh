@@ -6,12 +6,13 @@ export function getTranslation (section:string, text:string)
 
     if (!lang)
     {
-        document.cookie = "lang=en_en";
+        document.cookie = "lang=en_us";
     } else {
         try {
             translation = require(`./${lang}.json`);
         } catch (err:any) {
-            translation = require('./en_en.json');
+            translation = require('./en_us.json');
+            document.cookie = "lang=en_us"
         }
     }
 
