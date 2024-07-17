@@ -1,3 +1,5 @@
+import { getCookie } from "../Utils";
+
 export function getTranslation (section:string, text:string)
 {
 
@@ -18,10 +20,4 @@ export function getTranslation (section:string, text:string)
 
     if (translation)
         return translation[section][text];
-}
-
-function getCookie(name:string) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts?.pop()?.split(';').shift();
 }

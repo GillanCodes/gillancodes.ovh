@@ -1,16 +1,30 @@
-export default function ThemeBtn() {
+import { getCookie } from "../Utils";
 
-    function getCookie(name:string) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts?.pop()?.split(';').shift();
-    }
+export default function ThemeBtn() {
 
     const themeHandle = () => {
 
         var theme = getCookie("theme")
+        var t;
 
-        document.cookie = "lang=dark"
+        if (!theme)
+            document.cookie = "theme=dark";
+
+        switch (theme) {
+            case "dark":
+                document.cookie = "theme=light";
+                t = "light"
+                break;
+            case "light":
+                document.cookie = "theme=dark"
+                t = "dark"
+                break;
+            default:
+                break;
+        }
+
+        const e = new CustomEvent('theme', {detail: t})
+        document.dispatchEvent(e);
 
     }
 
