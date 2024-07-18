@@ -1,3 +1,4 @@
+import LangBtn from "./LangBtn";
 import ThemeBtn from "./ThemeBtn";
 
 export default function Navbar() {
@@ -8,9 +9,7 @@ export default function Navbar() {
         </a>
         <div className="controls">
             <ThemeBtn />
-            <button className='nav-btn'>
-              <p>L</p>
-            </button>
+            <LangBtn /> 
         </div>
     </nav>
   )
