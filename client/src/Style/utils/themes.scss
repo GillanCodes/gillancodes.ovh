@@ -1,10 +1,10 @@
 :root {
    --grad-btm: rgba(17, 17, 17, 1);
-   --grad-top: rgba(20, 0, 28, 1);
+   --grad-top: rgb(22, 0, 28);
 }
 
 [data-theme="light"] {
-    --grad-btm: rgb(65, 65, 65);
-    --grad-top: rgb(230, 230, 230);
+    --grad-btm: rgb(100, 100, 100);
+    --grad-top: rgb(82, 35, 95);
 }
 
