@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getCookie } from '../Utils';
+import { getCookie } from '../../Utils';
 
 export default function LangBtn() {
 

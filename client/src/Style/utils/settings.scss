@@ -3,6 +3,7 @@
     margin: 0;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
+    color: var(--text);
 }
 
 .App
@@ -10,9 +11,6 @@
     // background: linear-gradient(38deg, rgba(63,46,173,1) 15%, rgba(125,115,193,1) 100%);;
     background: linear-gradient(45deg ,var(--grad-btm), var(--grad-top));
     min-height: 100dvh;
-    
-
-
 }
 
 .App::before

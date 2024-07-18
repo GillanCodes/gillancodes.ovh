@@ -1,4 +1,4 @@
-import { getCookie } from "../Utils";
+import { getCookie } from "../../Utils";
 
 export default function ThemeBtn() {
 

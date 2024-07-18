@@ -5,5 +5,11 @@
     },
     "work": {
         "title": "Mes Projets"
+    },
+    "techno": {
+        "title": "Mes Technologies"
+    },
+    "school": {
+        "title": "Mes Formations"
     }
 }
