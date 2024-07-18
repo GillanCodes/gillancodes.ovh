@@ -1,0 +1,16 @@
+main
+{
+    #introduction
+    {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .texts
+        {
+           width: 60%;
+        }
+    }
+
+}

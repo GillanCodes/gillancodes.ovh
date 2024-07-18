@@ -1,5 +1,9 @@
 {
-    "home": {
-        "welcome": "Bienvenue !"
+    "introduction": {
+        "work": "Développeur & Développeur Web Full-Stack",
+        "description": "En tant que développeur web full-stack, je crée des applications Web modernes avec des outils tels que"
+    },
+    "work": {
+        "title": "Mes Projets"
     }
 }
