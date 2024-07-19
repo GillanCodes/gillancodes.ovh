@@ -21,18 +21,37 @@ export default function Home() {
         <h2 className='title'>{getTranslation("techno", "title")}</h2>
         <hr />
 
-        <ul className="grid">
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
-          <TechnoCard icon='nodejs.svg' name='NodeJS' />
+        <div className='category'>
+          <h3>BackEnd</h3>
+          <ul className="grid">
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+          </ul>
+        </div>
+        <div className='category'>
+          <h3>FrontEnd</h3>
+          <ul className="grid">
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+          </ul>
+        </div>
+        
 
-        </ul>
+
 
       </section>
       <section id='school'>
