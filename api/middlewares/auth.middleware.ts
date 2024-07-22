@@ -40,3 +40,21 @@ module.exports.requireAuth = (req: express.Request, res: express.Response, next:
         return res.status(200);
     }
 }
+
+
+module.exports.auth = (req: express.Request, res:express.Response, next: () => void) => {
+	try {
+		const token = req.cookies.auth;
+		const decodedToken:any = jwt.verify(token, config.JWT_TOKEN);
+		const userId = decodedToken.userId;
+		if (req.body.userId && req.body.userId !== userId) {
+			throw 'Invalid user ID'
+		} else {
+			next()
+		}
+	} catch {
+		res.status(401).json({
+			error: 'not_authenticated'
+		})
+	}
+}

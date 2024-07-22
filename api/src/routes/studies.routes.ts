@@ -1,16 +1,16 @@
 import { Router } from 'express';
 import { createStudy, deleteStudy, editStudy, getStudies, getStudy } from '../controllers/studies.controller';
-let requireAuth = require('../../middlewares/auth.middleware');
+let auth = require('../../middlewares/auth.middleware');
 let router:Router = Router();
 
 
 router.get('/', getStudies);
 router.get('/:id', getStudy);
 
-router.post('/', createStudy);
+router.post('/', auth.requireAuth, createStudy);
 
-router.patch('/:id', editStudy);
+router.patch('/:id', auth.requireAuth, editStudy);
 
-router.delete('/:id', deleteStudy);
+router.delete('/:id', auth.requireAuth, deleteStudy);
 
 export default router;
