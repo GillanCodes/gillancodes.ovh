@@ -6,9 +6,9 @@ import { isValidObjectId } from "mongoose";
 export const getStudies = async (req:Request, res:Response) => {
     try {
         const studies = await studyModel.find();
-        res.status(200).json(studies);
+        return res.status(200).json(studies);
     } catch (error) {
-        console.log(error);
+        return console.log(error);
     }
 }
 
@@ -20,11 +20,11 @@ export const getStudy = async (req:Request, res:Response) => {
             throw new Error('not_valid_id : Get Study');
 
         const study = await studyModel.findById(id);
-        res.status(200).json(study)
+        return res.status(200).json(study)
 
 
     } catch (error) {
-        
+        return console.log(error)
     }
 }
 
@@ -42,10 +42,10 @@ export const createStudy = async (req:Request, res:Response) => {
             description
         });
 
-        res.status(201).json(study);
+        return res.status(201).json(study);
 
     } catch (error) {
-        console.log(error);
+        return console.log(error);
     }
 
 }
