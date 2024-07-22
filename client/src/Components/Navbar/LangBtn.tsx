@@ -10,13 +10,15 @@ export default function LangBtn() {
         switch(lang)
         {
             case "fr_fr":
-                return "Fr";
+                return "🇫🇷";
             case "de_de":
-                return "De";
+                return "🇩🇪";
             case "en_us":
-                return "En";
+                return "🇬🇧";
+            case "es_es":
+                return "🇪🇦";
             default:
-                return "En";
+                return "🇬🇧";
         }
     }
 
@@ -42,12 +44,13 @@ export default function LangBtn() {
             </button>
 
             {isOpen && (
-                <div className='langs'>
-                    <button className='nav-btn' onClick={() => changeLang('fr_fr')}>Fr</button>
-                    <button className='nav-btn' onClick={() => changeLang('en_us')}>En</button>
-                    <button className='nav-btn' onClick={() => changeLang('de_de')}>De</button>
-                    <button className='nav-btn' onClick={() => changeLang('es_es')}>Es</button>
-                </div>
+                // <div className='langs'>
+                <>
+                    <button className='nav-btn' onClick={() => changeLang('en_us')}>🇬🇧</button>
+                    <button className='nav-btn' onClick={() => changeLang('fr_fr')}>🇫🇷</button>
+                    <button className='nav-btn' onClick={() => changeLang('de_de')}>🇩🇪</button>
+                    <button className='nav-btn' onClick={() => changeLang('es_es')}>🇪🇦</button>
+                </>
             )}
 
         </div>
