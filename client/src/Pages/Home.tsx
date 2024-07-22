@@ -1,6 +1,6 @@
 import React from 'react'
-import { getTranslation } from '../../langs/translation'
-import TechnoCard from './TechnoCard'
+import { getTranslation } from '../langs/translation'
+import TechnoCard from '../Components/TechnoCard'
 
 export default function Home() {
   return (
