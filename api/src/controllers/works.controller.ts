@@ -34,12 +34,13 @@ export const createWork = async (req: Request, res: Response) => {
        if (!res.locals.user)
         throw new Error("permission_refused: must be log to do that action !") 
 
-        const { icon, name, description } = req.body;
+        const { icon, name, description, tags } = req.body;
 
         const work = await workModel.create({
             icon,
             name,
             description,
+            tags
         })
 
         return res.status(201).send(work)
@@ -60,12 +61,13 @@ export const editWork = async (req: Request, res: Response) => {
         if (!isValidObjectId(id))
             throw new Error('invalid_id');
 
-        const { icon, name, description } = req.body;
+        const { icon, name, description, tags } = req.body;
         
         await workModel.findByIdAndUpdate(id, {
             icon,
             name,
             description,
+            tags,
         }, {new:true, upsert: true}).then((data) => {
             return res.status(201).json(data);
         }).catch((err) => {
