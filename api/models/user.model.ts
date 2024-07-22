@@ -1,7 +1,6 @@
 //Imports
 import { Document, Model, ObjectId, Schema, model } from "mongoose";
 import {genSalt, hash, compare} from "bcrypt";
-import isEmail from "validator/lib/isEmail";
 
 // User Interface init
 export interface IUser extends Document {
