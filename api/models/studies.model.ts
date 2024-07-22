@@ -15,5 +15,5 @@ const studiySchema = new Schema<IStudy>({
 }, {timestamps:true});
 
 //default export.
-const studyModel = model<IStudy>('user', studiySchema);
+const studyModel = model<IStudy>('studies', studiySchema);
 export default studyModel;

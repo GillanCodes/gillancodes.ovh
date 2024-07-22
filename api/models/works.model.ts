@@ -17,5 +17,5 @@ const workSchema = new Schema<IWork>({
 }, {timestamps:true});
 
 //default export.
-const wokrModel = model<IWork>('user', workSchema);
+const wokrModel = model<IWork>('work', workSchema);
 export default wokrModel;
