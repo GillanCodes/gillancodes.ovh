@@ -40,7 +40,7 @@ export default function LangBtn() {
     return (
         <div className='lang-btns'>
             <button className='nav-btn' onClick={openHandle}>
-                <p>{langTranslate(currentLang)}</p>
+                <p>{isOpen ? "❌" : langTranslate(currentLang)}</p>
             </button>
 
             {isOpen && (
