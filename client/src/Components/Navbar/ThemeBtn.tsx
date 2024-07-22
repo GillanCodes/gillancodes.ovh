@@ -8,8 +8,12 @@ export default function ThemeBtn() {
         var t;
 
         if (!theme)
-            document.cookie = "theme=dark";
-
+        {
+            document.cookie = "theme=light";
+            const e = new CustomEvent('theme', {detail: "light"})
+            return document.dispatchEvent(e);
+        }
+            
         switch (theme) {
             case "dark":
                 document.cookie = "theme=light";
