@@ -6,13 +6,13 @@
 
     h3
     {
-      color: var(--secondary);
+      color: var(--text);
       text-decoration: underline;
     }
     
     p
     {
-      color: var(--secondary);
+      color: var(--text);
     }
 
     /* Container around content */
@@ -48,9 +48,9 @@
     width: 0;
     z-index: 1;
     right: 30px;
-    border: medium solid var(--primary);
+    border: medium solid var(--secondary);
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent var(--primary);
+    border-color: transparent transparent transparent var(--secondary);
     }
 
     /* Add arrows to the right container (pointing left) */
@@ -62,9 +62,9 @@
     width: 0;
     z-index: 1;
     left: 30px;
-    border: medium solid var(--primary);
+    border: medium solid var(--secondary);
     border-width: 10px 10px 10px 0;
-    border-color: transparent var(--primary) transparent var(--primary);
+    border-color: transparent var(--secondary) transparent var(--secondary);
     }
 
     /* Fix the circle for containers on the right side */
@@ -75,7 +75,7 @@
     /* The actual content */
     .content {
     padding: 20px 30px;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     position: relative;
     border-radius: 6px;
     }
@@ -87,7 +87,7 @@
   content: '';
   position: absolute;
   width: 6px;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -122,9 +122,9 @@
 /* Make sure that all arrows are pointing leftwards */
   .timeline .container::before {
     left: 30px;
-    border: medium solid var(--primary);
+    border: medium solid var(--secondary);
     border-width: 10px 10px 10px 0;
-    border-color: transparent var(--primary) transparent transparent;
+    border-color: transparent var(--secondary) transparent transparent;
   }
 
   .timeline .container.left
