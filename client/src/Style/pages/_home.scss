@@ -3,12 +3,12 @@ main
     hr 
     { 
         margin-bottom: 15px; 
-        color: pink;
+        color: var(--primary);
     }
     h2 
     { 
         margin-bottom: 12px ;
-        color: pink;
+        color: var(--primary);
     }
 
     #introduction

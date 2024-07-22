@@ -1,13 +1,21 @@
-:root {
-   --grad-btm: rgba(17, 17, 17, 1);
-   --grad-top: rgb(22, 0, 28);
-   --accent: #fc0000;
-   --text: #FFF;
+:root
+{
+    --text: #f0ebf6;
+    --background: #0f0816;
+    --primary: #be9ddf;
+    --secondary: #4e227a;
+    --accent: #8d44d5;
+    --glass: rgba(78, 34, 122, .4);
+
 }
 
 [data-theme="light"] {
-    --grad-btm: rgb(100, 100, 100);
-    --grad-top: rgb(82, 35, 95);
-    --text: #000;
+    --text: #0f0915;
+    --background: #f0e4f8;
+    --primary: #401f60;
+    --secondary: #b084dc;
+    --accent: #732abb;
+    --glass: rgba(176, 132, 220, .4);
+
 }
 
