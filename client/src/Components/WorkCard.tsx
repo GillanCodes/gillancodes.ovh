@@ -20,7 +20,7 @@ export default function WorkCard({icon, name, description, tags}: {icon:string, 
         <div className="footer">
             {tags && tags.map((tag: ITag, key:number) => {
                 return (
-                    <span className={`tag ${tag.color}`} key={key}>{tag.name}</span>
+                    <span className={`tag ${tag.color}`} key={key} style={{backgroundColor:tag.color}}>{tag.name}</span>
                 )
             })}
         </div>

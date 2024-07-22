@@ -19,7 +19,7 @@ export default function Home() {
         
         <div className="content">
           <ul className="grid">
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Javascript", "color": "#000"}, {"name": "NodeJs", "color": "green"}]} />
             <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
             <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
             <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
@@ -42,29 +42,14 @@ export default function Home() {
         <div className='category'>
           <h3>BackEnd</h3>
           <ul className="grid">
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' color="red"/>
+
           </ul>
         </div>
         <div className='category'>
           <h3>FrontEnd</h3>
           <ul className="grid">
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
-            <TechnoCard icon='nodejs.svg' name='NodeJS' />
+            <TechnoCard icon='nodejs.svg' name='NodeJS' color="#000"/>
           </ul>
         </div>
 
