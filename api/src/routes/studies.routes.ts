@@ -9,8 +9,8 @@ router.get('/:id', getStudy);
 
 router.post('/', createStudy);
 
-// router.patch('/:id', requireAuth, editStudy);
+router.patch('/:id', editStudy);
 
-// router.delete('/:id', requireAuth, deleteStudy);
+router.delete('/:id', deleteStudy);
 
 export default router;
