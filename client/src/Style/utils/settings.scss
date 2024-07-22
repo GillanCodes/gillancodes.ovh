@@ -31,14 +31,28 @@
     margin: auto;
 }
 
+.highlight
+{
+    color: var(--accent);
+}
+
 @media screen and (min-width: 1150px) {
-    .container 
+    .container
     {
         width: 1150px;
     }
 }
 
-.highlight
-{
-    color: var(--accent);
+@media screen and (max-width: 1149px) {
+    .container 
+    {
+        width: 90dvw;
+    }
+}
+
+@media screen and (max-width: 10px) {
+    .container 
+    {
+        width: 90dvw;
+    }
 }
