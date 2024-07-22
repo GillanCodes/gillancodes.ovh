@@ -20,9 +20,9 @@ const createToken = (id:string) => {
 
 //create a new user "signup"
 export const signup = async (req: express.Request, res: express.Response) => {
-    const {username, email, password}: {username:string,email:string,password:string} = req.body;
+    const {username, password}: {username:string,password:string} = req.body;
     try {
-        const user = await userModel.create({username, email, password});
+        const user = await userModel.create({username,password});
         log(`New user created : ${user._id}`, "info")
         return res.status(201).json({user:user._id});
     } catch (error:any) {
@@ -32,10 +32,10 @@ export const signup = async (req: express.Request, res: express.Response) => {
 
 //to login a user "signin"
 export const signin = async (req: express.Request, res: express.Response) => {
-    const {log, password}: {log:string,password:string} = req.body;
+    const {username, password}: {username:string,password:string} = req.body;
     
     try {
-        var user = await userModel.login(log, password);
+        var user = await userModel.login(username, password);
         var uid:string = user._id.toString();
         const token:string = createToken(uid);
         res.cookie('auth', token, {httpOnly: true, maxAge});

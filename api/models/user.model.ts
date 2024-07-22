@@ -6,8 +6,8 @@ import isEmail from "validator/lib/isEmail";
 // User Interface init
 export interface IUser extends Document {
     _id:        ObjectId | string,
+    username:   string,
     password:   string,
-    email:      string,
     createdAt:  Date | string,
     updatedAt:  Date | string
 }
@@ -19,8 +19,8 @@ export interface UserModel extends Model<IUser> {
 
 // Create userSchema
 const userSchema = new Schema<IUser>({
-    email: {type: String, required: true, validate: isEmail},
-    password: {type: String, required: true, minlength:5,maxlength:255},
+    username: {type: String, required:true},
+    password: {type: String, required: true, minlength:1,maxlength:255},
 }, {timestamps:true});
 
 // Before create account, we hash the password
@@ -31,11 +31,11 @@ userSchema.pre<IUser>('save', async function(this: IUser, next) {
 });
 
 // Login function to see if the password match.
-userSchema.statics.login = async function (log:string, password:string)
+userSchema.statics.login = async function (username:string, password:string)
 {
     var user;
 
-    user = await userModel.findOne({email: log});
+    user = await userModel.findOne({username});
     
     if (!user) 
         throw new Error("incorrect_log");
