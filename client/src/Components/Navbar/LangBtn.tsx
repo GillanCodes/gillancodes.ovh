@@ -45,7 +45,8 @@ export default function LangBtn() {
                 <div className='langs'>
                     <button className='nav-btn' onClick={() => changeLang('fr_fr')}>Fr</button>
                     <button className='nav-btn' onClick={() => changeLang('en_us')}>En</button>
-                    {/* <button className='nav-btn' onClick={() => setCurrentLang('de_de')}>De</button> */}
+                    <button className='nav-btn' onClick={() => changeLang('de_de')}>De</button>
+                    <button className='nav-btn' onClick={() => changeLang('es_es')}>Es</button>
                 </div>
             )}
 

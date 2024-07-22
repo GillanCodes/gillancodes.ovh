@@ -1,5 +1,18 @@
 {
-    "home": {
-        "welcome": "Welcome !"
+    "introduction": {
+        "work": "Developer & Full-Stack Web Developer",
+        "description": "As a full-stack web developer, I build modern web applications with tools like"
+    },
+    "work": {
+        "title": "My Works"
+    },
+    "techno": {
+        "title": "My Technologies"
+    },
+    "school": {
+        "title": "My studies"
+    },
+    "footer":{
+        "main": "Built with"
     }
 }

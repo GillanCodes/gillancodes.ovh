@@ -1,0 +1,18 @@
+{
+    "introduction": {
+        "work": "Entwickler und Full-Stack-Webentwickler",
+        "description": "Als Full-Stack-Webentwickler erstelle ich moderne Webanwendungen mit Tools wie"
+    },
+    "work": {
+        "title": "Meine Projekte"
+    },
+    "techno": {
+        "title": "Meine Technologien"
+    },
+    "school": {
+        "title": "Meine Studien"
+    },
+    "footer":{
+        "main": "Gebaut mit"
+    }
+}

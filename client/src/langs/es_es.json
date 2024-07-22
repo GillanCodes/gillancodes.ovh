@@ -1,0 +1,18 @@
+{
+    "introduction": {
+        "work": "Desarrollador y desarrollador web de pila completa",
+        "description": "Como desarrollador web completo, creo aplicaciones web modernas con herramientas como"
+    },
+    "work": {
+        "title": "Mis trabajos"
+    },
+    "techno": {
+        "title": "Mis tecnologías"
+    },
+    "school": {
+        "title": "Mis estudios"
+    },
+    "footer":{
+        "main": "Construido con"
+    }
+}
