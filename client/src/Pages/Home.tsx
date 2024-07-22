@@ -1,6 +1,7 @@
 import React from 'react'
 import { getTranslation } from '../langs/translation'
 import TechnoCard from '../Components/TechnoCard'
+import WorkCard from '../Components/WorkCard'
 
 export default function Home() {
   return (
@@ -15,6 +16,23 @@ export default function Home() {
       <section id='works'>
         <h2 className='title'>{getTranslation("work", "title")}</h2>
         <hr />
+        
+        <div className="content">
+          <ul className="grid">
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+          </ul>  
+        </div> 
+
+
 
       </section>
       <section id='technologies'>
@@ -49,14 +67,26 @@ export default function Home() {
             <TechnoCard icon='nodejs.svg' name='NodeJS' />
           </ul>
         </div>
-        
-
-
 
       </section>
       <section id='school'>
         <h2 className='title'>{getTranslation("school", "title")}</h2>
         <hr />
+
+        <div className="timeline">
+          <div className="container left">
+            <div className="content">
+              <h3>2017</h3>
+              <p>Lorem ipsum..</p>
+            </div>
+          </div>
+          <div className="container right">
+            <div className="content">
+              <h3>2016</h3>
+              <p>Lorem ipsum..</p>
+            </div>
+          </div>
+        </div> 
       </section>
     </main>
   )

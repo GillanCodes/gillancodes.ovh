@@ -1,0 +1,68 @@
+.work-card
+{
+    height: 250px;
+    background-color: rgba(255, 0, 179, 0.2);
+    backdrop-filter: blur(10px);
+
+    border-radius: .375rem;
+
+    .head
+    {
+        display: flex;
+        align-items: center;    
+        
+        margin-top: 10px;
+
+        div#icon
+        {
+            margin-left: 10px;
+
+            height: 36px;
+            width: 36px;
+            background-color: rgba(0,0,0,.5);
+            border-radius: .5rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img
+            {
+                height: 20px;
+                width: 20px;
+            }
+        }
+
+        p
+        {
+            margin-left: 10px;
+        }
+    }
+
+    .body p
+    {
+        margin: 10px;
+    }
+
+
+    .footer
+    {
+
+        margin-left: 10px;
+
+        display: flex;
+        gap: 5px;
+
+        .tag
+        {
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            background-color: blue;
+        }
+
+        .tag.red {background-color: red;}
+        .tag.yellow {background-color: yellow;}
+
+    }
+}
