@@ -11,5 +11,8 @@
     },
     "school": {
         "title": "Mes Formations"
+    },
+    "footer":{
+        "main": "Fait avec"
     }
 }

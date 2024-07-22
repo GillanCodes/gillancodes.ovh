@@ -1,0 +1,41 @@
+footer
+{
+
+    font-size: 14px;
+    margin-top: 25px;
+
+    .content
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 10px 0;
+
+        .links
+        {
+
+            display: flex;
+            gap: 10px;
+
+            a img {
+                height: 64px;
+                width: 64px;
+            }
+        }
+
+        .techno p 
+        {
+            font-style: italic;
+
+            span 
+            {
+                color: var(--accent);
+                font-style: normal;
+            }
+        }
+    }
+
+    
+
+}
