@@ -45,7 +45,7 @@ export const createTechno = async (req: any, res:Response) => {
     }
 }
 
-export const editTechno = async (req: Request, res:Response) => {
+export const editTechno = async (req: any, res:Response) => {
     try {
 
         if (!res.locals.user)
@@ -56,11 +56,17 @@ export const editTechno = async (req: Request, res:Response) => {
         if(!isValidObjectId(id))
             throw new Error("invalid_id");
     
-        const { icon, name, color, category } = req.body;
+        const { name, color, category } = req.body;
+        const file = req.file;
+        
+        const fileName = genUId() + ".png";
+        fs.writeFile(`${sanitizedConfig.CDN_PATH}/${fileName}`, file!.buffer, (err:any) => {
+            if (err) throw new Error(err);
+        });
 
         await technoModel.findByIdAndUpdate(id, {
             name,
-            icon,
+            icon: fileName,
             color, 
             category
         }, {new: true, upsert: true}).then((data) => {

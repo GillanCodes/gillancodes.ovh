@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import { isValidObjectId } from "mongoose";
 import workModel from "../../models/works.model";
+import sanitizedConfig from "../../config/config";
+import genUId from "../utils/Uid";
+import * as fs from "fs";
 
 export const getWorks = async (req: Request, res: Response) => {
     try {
@@ -29,15 +32,21 @@ export const getWork = async (req: Request, res: Response) => {
     }
 }
 
-export const createWork = async (req: Request, res: Response) => {
+export const createWork = async (req: any, res: Response) => {
     try {
        if (!res.locals.user)
         throw new Error("permission_refused: must be log to do that action !") 
 
-        const { icon, name, description, tags } = req.body;
+        const { name, description, tags } = req.body;
+        const file = req.file;
+        
+        const fileName = genUId() + ".png";
+        fs.writeFile(`${sanitizedConfig.CDN_PATH}/${fileName}`, file!.buffer, (err:any) => {
+            if (err) throw new Error(err);
+        });
 
         const work = await workModel.create({
-            icon,
+            icon: fileName,
             name,
             description,
             tags
@@ -51,7 +60,7 @@ export const createWork = async (req: Request, res: Response) => {
     }
 }
 
-export const editWork = async (req: Request, res: Response) => {
+export const editWork = async (req: any, res: Response) => {
     try {
         if (!res.locals.user)
             throw new Error("permission_refused: must be log to do that action !")
@@ -61,10 +70,16 @@ export const editWork = async (req: Request, res: Response) => {
         if (!isValidObjectId(id))
             throw new Error('invalid_id');
 
-        const { icon, name, description, tags } = req.body;
+        const { name, description, tags } = req.body;
+        const file = req.file;
+        
+        const fileName = genUId() + ".png";
+        fs.writeFile(`${sanitizedConfig.CDN_PATH}/${fileName}`, file!.buffer, (err:any) => {
+            if (err) throw new Error(err);
+        });
         
         await workModel.findByIdAndUpdate(id, {
-            icon,
+            icon: fileName,
             name,
             description,
             tags,
