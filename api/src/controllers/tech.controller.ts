@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import technoModel from "../../models/techno.model";
 import { isValidObjectId } from "mongoose";
+import * as fs from "fs";
+import genUId from "../utils/Uid";
+import sanitizedConfig from "../../config/config";
 
 export const getTechnos = async (req: Request, res:Response) => {
     try {
@@ -13,17 +16,23 @@ export const getTechnos = async (req: Request, res:Response) => {
     }
 }
 
-export const createTechno = async (req: Request, res:Response) => {
+export const createTechno = async (req: any, res:Response) => {
     try {
 
         if (!res.locals.user)
             throw new Error("permission_denied: need auth.");
 
-        const { icon, name, color, category } = req.body;
+        const { name, color, category } = req.body;
+        const file = req.file;
+        
+        const fileName = genUId() + ".png";
+        fs.writeFile(`${sanitizedConfig.CDN_PATH}/${fileName}`, file!.buffer, (err:any) => {
+            if (err) throw new Error(err);
+        });
 
         const tech = await technoModel.create({
             name,
-            icon,
+            icon: fileName,
             color, 
             category
         });

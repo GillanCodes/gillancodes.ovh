@@ -12,6 +12,7 @@ interface ENV
     DB_CONNECT_STRING   : string | undefined;
     APP_NAME            : string | undefined;
     LOG_FOLDER          : string | undefined;
+    CDN_PATH            : string | undefined;
 };
 
 interface Config
@@ -21,6 +22,7 @@ interface Config
     DB_CONNECT_STRING   : string;
     APP_NAME            : string;
     LOG_FOLDER          : string;
+    CDN_PATH            : string;
 };
 
 //We get env file and format it
@@ -31,6 +33,7 @@ const getConfig = (): ENV => {
         DB_CONNECT_STRING: process.env.DB_CONNECT_STRING,
         APP_NAME: process.env.APP_NAME,
         LOG_FOLDER: process.env.LOG_FOLDER,
+        CDN_PATH: process.env.CDN_PATH,
     };
 };
 
