@@ -3,7 +3,7 @@ export default function TechnoCard({icon, name, color}: {icon:string, name:strin
   return (
     <li className='tech-card'>
         <div id='icon' style={{backgroundColor:color}}>
-            <img src={`/icons/${icon}`} alt={name} />
+            <img src={`${process.env.REACT_APP_CDN_URL}/${icon}`} alt={name} />
         </div>
         <p>{name}</p>
     </li>
