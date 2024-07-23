@@ -52,6 +52,15 @@ export default function Home() {
                 })}
               </>
             )}
+          
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
+            <WorkCard icon={"nodejs.svg"} name={"WORK IN PROGRESS"} description='dev' tags={[{"name": "test", "color": "black"}, {"name": "dev", color:"#488999"}]} />
           </ul>  
         </div> 
 
@@ -131,9 +140,28 @@ export default function Home() {
                 })}  
               </ul> 
             </div>
+            
+            
           </>
 
         )}
+            <div className="category">
+              <h3>DEV</h3>
+              <ul className='grid'>
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+                      <TechnoCard icon={"nodejs.svg"}name={"DEV WIP"}color={"#000"} /> 
+              </ul> 
+            </div>
       </section>
       <section id='school'>
         <h2 className='title'>{getTranslation("school", "title")}</h2>

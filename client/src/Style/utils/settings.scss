@@ -12,8 +12,23 @@
     // background: linear-gradient(45deg ,var(--grad-btm), var(--grad-top));
     background-color: var(--background);
     min-height: 100vh;
+
+    position: relative;
+
+}
+
+.App::before
+{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
     background-image: url("../../../public/grid.svg");
     background-repeat: repeat;
+    opacity: .7;
+
+    // Todo : Invert svg color
+    filter: invert(0%) sepia(0%) saturate(7498%) hue-rotate(203deg) brightness(89%) contrast(94%);
 }
 
 .container
