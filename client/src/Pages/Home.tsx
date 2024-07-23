@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { getTranslation } from '../langs/translation'
 import TechnoCard from '../Components/TechnoCard'
 import WorkCard from '../Components/WorkCard'
+import { useSelector } from 'react-redux'
+import { isEmpty } from '../Utils/IsEmpty'
 
 export default function Home() {
+
+  const works = useSelector((state:any) => state.worksReducer);
+
+  const [load, setLoad] = useState({works: false, tech: false, studies: false});
+
+  useEffect(() => {
+    if (!isEmpty(works)) setLoad({...load, works:true});
+    else setLoad({...load, works:false});
+  }, [works])
+
   return (
     <main>
       <section id='introduction'>
@@ -19,16 +31,31 @@ export default function Home() {
         
         <div className="content">
           <ul className="grid">
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Javascript", "color": "#000"}, {"name": "NodeJs", "color": "green"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
-            <WorkCard icon='rtb.png' name='Dev' description='This a a description for dev purpose' tags={[{"name": "Test", "color": "red"}, {"name": "Dev", "color": "yellow"}]} />
+            {load.works && (
+              <>
+                {works.map((work:any) => {
+                  return (
+                    <WorkCard 
+                      icon={work.icon} 
+                      name={work.name} 
+                      description='dev' 
+                      tags={work.tags} 
+                    />
+                  )
+                })}
+              </>
+            )}
+
+            {/* 
+        
+              <WorkCard 
+                icon='rtb.png' 
+                name='Dev' 
+                description='This a a description for dev purpose' 
+                tags={[{"name": "Javascript", "color": "#000"}, {"name": "NodeJs", "color": "green"}]} 
+              />
+            */}
+
           </ul>  
         </div> 
 

@@ -2,3 +2,4 @@
 /api/dist/ 
 
 /client/node_modules/
+/client/.env

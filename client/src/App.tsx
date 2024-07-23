@@ -2,8 +2,12 @@ import './Style/index.scss'
 import Routes from "./Routes";
 import { getCookie } from './Utils';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getWorks } from './actions/works.action';
 
 function App() {
+
+  const dispatch:any = useDispatch();
 
   const [theme, setTheme] = useState(getCookie('theme'));
 
@@ -18,6 +22,10 @@ function App() {
       setTheme(e.detail);
     })
   }, []);
+
+  useEffect(() => {
+    dispatch(getWorks());
+  }, [])
 
   return (
     <div className="App" data-theme={theme}>
