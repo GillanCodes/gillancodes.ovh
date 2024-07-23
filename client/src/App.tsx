@@ -4,6 +4,7 @@ import { getCookie } from './Utils';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getWorks } from './actions/works.action';
+import { getTechs } from './actions/tech.action';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getWorks());
+    dispatch(getTechs());
   }, [])
 
   return (

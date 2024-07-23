@@ -8,6 +8,7 @@ import { isEmpty } from '../Utils/IsEmpty'
 export default function Home() {
 
   const works = useSelector((state:any) => state.worksReducer);
+  const techs = useSelector((state:any) => state.techsReducer);
 
   const [load, setLoad] = useState({works: false, tech: false, studies: false});
 
@@ -15,6 +16,12 @@ export default function Home() {
     if (!isEmpty(works)) setLoad({...load, works:true});
     else setLoad({...load, works:false});
   }, [works])
+
+  useEffect(() => {
+    console.log(techs)
+    if (!isEmpty(techs)) setLoad({...load, tech:true});
+    else setLoad({...load, tech:false});
+  }, [techs])
 
   return (
     <main>
@@ -66,7 +73,27 @@ export default function Home() {
         <h2 className='title'>{getTranslation("techno", "title")}</h2>
         <hr />
 
-        <div className='category'>
+        {load.tech && (
+          <>
+            <div className="category">
+              <h3>Dev</h3>
+              <ul>
+                {techs.map((tech:any, key:number) => {
+                  return (
+                    <TechnoCard 
+                      icon={tech.icon}
+                      name={tech.name}
+                      color={tech.color}
+                    />
+                  )
+                })}  
+              </ul> 
+            </div>
+          </>
+
+        )}
+
+        {/* <div className='category'>
           <h3>BackEnd</h3>
           <ul className="grid">
             <TechnoCard icon='nodejs.svg' name='NodeJS' color="red"/>
@@ -78,7 +105,7 @@ export default function Home() {
           <ul className="grid">
             <TechnoCard icon='nodejs.svg' name='NodeJS' color="#000"/>
           </ul>
-        </div>
+        </div> */}
 
       </section>
       <section id='school'>
