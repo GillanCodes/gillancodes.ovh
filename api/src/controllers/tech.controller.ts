@@ -19,12 +19,13 @@ export const createTechno = async (req: Request, res:Response) => {
         if (!res.locals.user)
             throw new Error("permission_denied: need auth.");
 
-        const { icon, name, color } = req.body;
+        const { icon, name, color, category } = req.body;
 
         const tech = await technoModel.create({
             name,
             icon,
-            color
+            color, 
+            category
         });
 
         return res.status(201).json(tech);
@@ -46,12 +47,13 @@ export const editTechno = async (req: Request, res:Response) => {
         if(!isValidObjectId(id))
             throw new Error("invalid_id");
     
-        const { icon, name, color } = req.body;
+        const { icon, name, color, category } = req.body;
 
         await technoModel.findByIdAndUpdate(id, {
             name,
             icon,
-            color
+            color, 
+            category
         }, {new: true, upsert: true}).then((data) => {
             return res.status(201).json(data);
         }).catch((err) => {

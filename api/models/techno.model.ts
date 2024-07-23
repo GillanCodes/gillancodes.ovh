@@ -6,6 +6,7 @@ export interface ITechno
     icon:       string,
     name:       string,
     color:      string,
+    category:      string,
     createdAt:  Date | string,
     updatedAt:  Date | string
 }
@@ -14,6 +15,7 @@ const technoSchema = new Schema<ITechno>({
     icon: {type: String, required: true},
     name: {type:String, required: true},
     color: {type:String, required: true},
+    category: {type:String, required: true},
 }, {timestamps:true});
 
 //default export.

@@ -10,18 +10,17 @@ export default function Home() {
   const works = useSelector((state:any) => state.worksReducer);
   const techs = useSelector((state:any) => state.techsReducer);
 
-  const [load, setLoad] = useState({works: false, tech: false, studies: false});
+
+  const [loadTech, setLoadTech] = useState(false);
+  const [loadWork, setLoadWork] = useState(false);
+  const [loadStudy, setLoadStudy] = useState(false);
 
   useEffect(() => {
-    if (!isEmpty(works)) setLoad({...load, works:true});
-    else setLoad({...load, works:false});
-  }, [works])
+    if (!isEmpty(works)) setLoadWork(true);
+    if (!isEmpty(techs)) setLoadTech(true);
+  }, [works, techs])
 
-  useEffect(() => {
-    console.log(techs)
-    if (!isEmpty(techs)) setLoad({...load, tech:true});
-    else setLoad({...load, tech:false});
-  }, [techs])
+
 
   return (
     <main>
@@ -38,31 +37,21 @@ export default function Home() {
         
         <div className="content">
           <ul className="grid">
-            {load.works && (
+            {loadWork && (
               <>
-                {works.map((work:any) => {
+                {works.map((work:any, key:number) => {
                   return (
                     <WorkCard 
                       icon={work.icon} 
                       name={work.name} 
                       description='dev' 
                       tags={work.tags} 
+                      key={key}
                     />
                   )
                 })}
               </>
             )}
-
-            {/* 
-        
-              <WorkCard 
-                icon='rtb.png' 
-                name='Dev' 
-                description='This a a description for dev purpose' 
-                tags={[{"name": "Javascript", "color": "#000"}, {"name": "NodeJs", "color": "green"}]} 
-              />
-            */}
-
           </ul>  
         </div> 
 
@@ -73,40 +62,78 @@ export default function Home() {
         <h2 className='title'>{getTranslation("techno", "title")}</h2>
         <hr />
 
-        {load.tech && (
+        {loadTech && (
           <>
             <div className="category">
-              <h3>Dev</h3>
-              <ul>
+              <h3>Back-End</h3>
+              <ul className='grid'>
                 {techs.map((tech:any, key:number) => {
-                  return (
-                    <TechnoCard 
-                      icon={tech.icon}
-                      name={tech.name}
-                      color={tech.color}
-                    />
-                  )
+                  if (tech.category === "back")
+                    return (
+                      <TechnoCard 
+                        icon={tech.icon}
+                        name={tech.name}
+                        color={tech.color}
+                        key={key}
+                      />
+                    )
+                })}  
+              </ul> 
+            </div>
+            
+            <div className="category">
+              <h3>Front-End</h3>
+              <ul className='grid'>
+                {techs.map((tech:any, key:number) => {
+                  if (tech.category === "front")
+                    return (
+                      <TechnoCard 
+                        icon={tech.icon}
+                        name={tech.name}
+                        color={tech.color}
+                        key={key}
+                      />
+                    )
+                })}  
+              </ul> 
+            </div>
+
+            <div className="category">
+              <h3>Softwares</h3>
+              <ul className='grid'>
+                {techs.map((tech:any, key:number) => {
+                  if (tech.category === "soft")
+                    return (
+                      <TechnoCard 
+                        icon={tech.icon}
+                        name={tech.name}
+                        color={tech.color}
+                        key={key}
+                      />
+                    )
+                })}  
+              </ul> 
+            </div>
+
+            <div className="category">
+              <h3>Languages</h3>
+              <ul className='grid'>
+                {techs.map((tech:any, key:number) => {
+                  if (tech.category === "lang")
+                    return (
+                      <TechnoCard 
+                        icon={tech.icon}
+                        name={tech.name}
+                        color={tech.color}
+                        key={key}
+                      />
+                    )
                 })}  
               </ul> 
             </div>
           </>
 
         )}
-
-        {/* <div className='category'>
-          <h3>BackEnd</h3>
-          <ul className="grid">
-            <TechnoCard icon='nodejs.svg' name='NodeJS' color="red"/>
-
-          </ul>
-        </div>
-        <div className='category'>
-          <h3>FrontEnd</h3>
-          <ul className="grid">
-            <TechnoCard icon='nodejs.svg' name='NodeJS' color="#000"/>
-          </ul>
-        </div> */}
-
       </section>
       <section id='school'>
         <h2 className='title'>{getTranslation("school", "title")}</h2>
