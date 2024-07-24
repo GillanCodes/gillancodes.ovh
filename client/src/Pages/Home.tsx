@@ -9,6 +9,7 @@ export default function Home() {
 
   const works = useSelector((state:any) => state.worksReducer);
   const techs = useSelector((state:any) => state.techsReducer);
+  const studies = useSelector((state:any) => state.studyReducer);
 
 
   const [loadTech, setLoadTech] = useState(false);
@@ -18,7 +19,8 @@ export default function Home() {
   useEffect(() => {
     if (!isEmpty(works)) setLoadWork(true);
     if (!isEmpty(techs)) setLoadTech(true);
-  }, [works, techs])
+    if (!isEmpty(studies)) setLoadStudy(true);
+  }, [works, techs, studies])
 
 
 
@@ -168,18 +170,21 @@ export default function Home() {
         <hr />
 
         <div className="timeline">
-          <div className="container left">
-            <div className="content">
-              <h3>2017</h3>
-              <p>Lorem ipsum..</p>
-            </div>
-          </div>
-          <div className="container right">
-            <div className="content">
-              <h3>2016</h3>
-              <p>Lorem ipsum..</p>
-            </div>
-          </div>
+
+          {loadStudy && (
+            <>
+              {studies.sort((a:any,b:any) => b.year - a.year).map((study:any, key:number) => {
+                return (
+                  <div className={`container ${key % 2 ? "left" : "right"}`} key={key}>
+                    <div className="content">
+                      <h3>{study.year}</h3>
+                      <p>Lorem</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </>
+          )}
         </div> 
       </section>
     </main>

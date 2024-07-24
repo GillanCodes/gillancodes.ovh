@@ -1,15 +1,15 @@
 import axios from "axios";
 
-export const GET_TECHS = "GET_TECHS";
+export const GET_STUDY = "GET_STUDY";
 
-export const getTechs = () => {
+export const getStudies = () => {
     return (dispatch:any) => {
         return axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/tech`,
+            url: `${process.env.REACT_APP_API_URL}/study`,
             withCredentials:true
         }).then((res) => {
-            dispatch({type: GET_TECHS, payload: res.data});
+            dispatch({type: GET_STUDY, payload: res.data});
         }).catch((err) => {
             return console.log(err);
         })

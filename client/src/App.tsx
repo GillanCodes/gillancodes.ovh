@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getWorks } from './actions/works.action';
 import { getTechs } from './actions/tech.action';
+import { getStudies } from './actions/study.action';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
   useEffect(() => {
     dispatch(getWorks());
     dispatch(getTechs());
+    dispatch(getStudies());
   }, [])
 
   return (
