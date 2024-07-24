@@ -22,10 +22,14 @@
     content: "";
     height: 100%;
     width: 100%;
+    top: 0;
+    right: 0;
+    inset: 0;
     position: absolute;
     background-image: url("../../../public/grid.svg");
     background-repeat: repeat;
     opacity: .7;
+    pointer-events: none;
 
     // Todo : Invert svg color
     filter: invert(0%) sepia(0%) saturate(7498%) hue-rotate(203deg) brightness(89%) contrast(94%);
