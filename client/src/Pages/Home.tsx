@@ -4,6 +4,7 @@ import TechnoCard from '../Components/TechnoCard'
 import WorkCard from '../Components/WorkCard'
 import { useSelector } from 'react-redux'
 import { isEmpty } from '../Utils/IsEmpty'
+import { getCookie } from '../Utils'
 
 export default function Home() {
 
@@ -22,7 +23,7 @@ export default function Home() {
     if (!isEmpty(studies)) setLoadStudy(true);
   }, [works, techs, studies])
 
-
+  var lang = getCookie('lang');
 
   return (
     <main>
@@ -46,7 +47,7 @@ export default function Home() {
                     <WorkCard 
                       icon={work.icon} 
                       name={work.name} 
-                      description='dev' 
+                      description={work.description[getCookie('lang')!]} 
                       tags={work.tags} 
                       key={key}
                     />
@@ -178,7 +179,7 @@ export default function Home() {
                   <div className={`container ${key % 2 ? "left" : "right"}`} key={key}>
                     <div className="content">
                       <h3>{study.year}</h3>
-                      <p>Lorem</p>
+                      <p>{study.description[getCookie('lang')!]}</p>
                     </div>
                   </div>
                 )
