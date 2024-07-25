@@ -1,0 +1,143 @@
+main#dashboard
+{
+
+    .tabs
+    {
+
+        ul
+        {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+
+            li
+            {
+                color: var(--primary);
+                cursor: pointer;
+
+                &:hover
+                {
+                    color: var(--accent);
+                }
+
+                &.active
+                {
+                    text-decoration: underline;
+                }
+            }
+        }
+    
+    }
+
+    .content
+    {
+
+        margin: 50px 0;
+
+        #works
+        {
+
+            width: 250px;
+            margin: auto;
+        }
+
+        form, form *
+        {
+            width: 100%;
+        }
+
+        form
+        {
+
+            hr
+            {
+                width: 100%;
+                margin: 25px 0;
+            }
+            
+            .fields
+            {
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .field
+                {
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    label
+                    {
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+
+                    input, textarea
+
+                    {
+                        margin: 0;
+                        padding: 0;
+                        border: none;
+                        outline: none;
+
+                        border: 1px var(--accent) solid;
+                        border-radius: 5px;
+
+                        padding: 5px;
+                        font-size: 15px;
+
+                        color: var(--text);
+                        background-color: var(--background);
+
+                        width: calc(100% - 12px);
+                        resize: none;
+                    }
+
+
+                    button, .button
+                    {
+                        border: 1px var(--primary) solid;
+                        border-radius: 5px;
+                        background-color: var(--primary);
+                        color: var(--background);
+                        cursor: pointer;
+                    }
+
+                    .addon
+                    {
+                        display: flex;
+                        gap: 5px;
+                    }
+
+                    .tags
+                    {
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        justify-content: center;
+
+                        gap: 2px;
+
+                        .tag
+                        {
+                            width: 100px;
+                            text-align: center;
+                            border-radius: 5px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}

@@ -33,6 +33,7 @@ export const getWork = async (req: Request, res: Response) => {
 }
 
 export const createWork = async (req: any, res: Response) => {
+
     try {
        if (!res.locals.user)
         throw new Error("permission_refused: must be log to do that action !") 
@@ -48,8 +49,8 @@ export const createWork = async (req: any, res: Response) => {
         const work = await workModel.create({
             icon: fileName,
             name,
-            description,
-            tags
+            description: JSON.parse(description),
+            tags: JSON.parse(tags)
         })
 
         return res.status(201).send(work)

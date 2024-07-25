@@ -11,7 +11,7 @@ export interface IWork
     _id:        ObjectId | string,
     icon:       string,
     name:       string,
-    descrption: object,
+    description: object,
     tags: ITag[],
     createdAt:  Date | string,
     updatedAt:  Date | string
@@ -20,7 +20,7 @@ export interface IWork
 const workSchema = new Schema<IWork>({
     icon: {type: String},
     name: {type: String},
-    descrption: {type:Object},
+    description: {type:Object},
     tags: {type: [{
         name: {type: String},
         color: {type: String},

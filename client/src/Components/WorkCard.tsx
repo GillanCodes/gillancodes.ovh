@@ -10,7 +10,7 @@ export default function WorkCard({icon, name, description, tags}: {icon:string, 
     <li className='work-card'>
         <div className="head">
             <div id='icon'>
-                <img src={`${process.env.REACT_APP_CDN_URL}/${icon}`} alt={name} />
+                <img src={`${process.env.REACT_APP_CDN_URL}/${icon}`} alt={"i"} />
             </div>
             <p>{name}</p>
         </div>

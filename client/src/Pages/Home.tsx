@@ -20,9 +20,8 @@ export default function Home() {
     if (!isEmpty(works)) setLoadWork(true);
     if (!isEmpty(techs)) setLoadTech(true);
     if (!isEmpty(studies)) setLoadStudy(true);
+    console.log(works)
   }, [works, techs, studies])
-
-  var lang = getCookie('lang');
 
   return (
     <main>
