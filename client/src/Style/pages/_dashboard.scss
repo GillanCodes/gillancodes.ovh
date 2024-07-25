@@ -38,7 +38,7 @@ main#dashboard
 
         margin: 50px 0;
 
-        #works
+        .form-container
         {
 
             width: 250px;
@@ -114,6 +114,8 @@ main#dashboard
                     {
                         display: flex;
                         gap: 5px;
+
+                     
                     }
 
                     .tags
@@ -132,6 +134,13 @@ main#dashboard
                             border-radius: 5px;
                         }
 
+                    }
+                    
+                    label 
+                    {
+                        width: fit-content;
+                        display: flex;
+                        gap: 5px;
                     }
                 }
             }

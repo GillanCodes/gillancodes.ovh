@@ -57,7 +57,7 @@ export default function WorksForm() {
     }
 
     return (
-        <div id='works'>
+        <div className='form-container'>
             <form onSubmit={submitHandle}>
                 <div className="fields">
                     <div className="field">
