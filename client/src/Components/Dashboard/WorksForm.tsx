@@ -46,13 +46,6 @@ export default function WorksForm() {
         data.append('tags', JSON.stringify(work.tags))
         data.append('description', JSON.stringify(work.description))
 
-        // for (let i = 0; i < work.tags.length; i++) {
-        //     data.append('tags[]', JSON.stringify);
-        // }
-        // for (let i = 0; i < work.description.length; i++) {
-        //     data.append('desciption[]', work.description[i]);
-        // }
-        
         dispatch(postWork(data))
     }
 
@@ -118,7 +111,7 @@ export default function WorksForm() {
 
                 <div className="fields">
                     <div className="field">
-                        <input type="submit" value="Add Works" className='button' />
+                        <input type="submit" value="Create work" className='button' />
                     </div>
                 </div>
             </form>

@@ -81,7 +81,7 @@ export default function TechsForm() {
 
         <div className="fields">
           <div className="field">
-            <input type="submit" value="Create" className='button'/>
+            <input type="submit" value="Create Technologie" className='button'/>
           </div>
         </div>
 
