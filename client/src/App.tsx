@@ -6,12 +6,16 @@ import { useDispatch } from 'react-redux';
 import { getWorks } from './actions/works.action';
 import { getTechs } from './actions/tech.action';
 import { getStudies } from './actions/study.action';
+import { UIdContext } from './App.context';
+import axios from 'axios';
+import { getUser } from './actions/user.action';
 
 function App() {
 
   const dispatch:any = useDispatch();
 
   const [theme, setTheme] = useState(getCookie('theme'));
+  const [UId, setUId] = useState(null);
 
   function isCustomEvent(event: Event): event is CustomEvent {
     return 'detail' in event;
@@ -29,14 +33,34 @@ function App() {
     dispatch(getWorks());
     dispatch(getTechs());
     dispatch(getStudies());
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+        await axios({
+          method:"GET",
+          withCredentials: true,
+          url: `${process.env.REACT_APP_API_URL}/jwtid`
+        }).then((res) => {
+          setUId(res.data);
+        })
+    }
+    fetchToken();
+
+    if (UId)
+    {
+      dispatch(getUser(UId));
+    }
+  }, [UId, dispatch]);
 
   return (
-    <div className="App" data-theme={theme}>
-      <div className="container">
-        <Routes />
+    <UIdContext.Provider value={UId}>
+      <div className="App" data-theme={theme}>
+        <div className="container">
+          <Routes />
+        </div>
       </div>
-    </div>
+    </UIdContext.Provider>
   );
 }
 
