@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getTranslation } from '../langs/translation'
 import TechnoCard from '../Components/TechnoCard'
 import WorkCard from '../Components/WorkCard'
@@ -11,7 +11,6 @@ export default function Home() {
   const works = useSelector((state:any) => state.worksReducer);
   const techs = useSelector((state:any) => state.techsReducer);
   const studies = useSelector((state:any) => state.studyReducer);
-
 
   const [loadTech, setLoadTech] = useState(false);
   const [loadWork, setLoadWork] = useState(false);

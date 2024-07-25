@@ -4,6 +4,8 @@ import Home from '../Pages/Home'
 import Navbar from '../Components/Navbar/Navbar'
 import Footer from '../Components/Footer'
 import Auth from '../Pages/Auth'
+import ProtectedRoute from './ProtectedRoutes'
+import Dashboard from '../Pages/Dashboard'
 
 export default function index() {
   return (
@@ -12,6 +14,11 @@ export default function index() {
         <Routes>
             <Route path='/' Component={Home} />
             <Route path='/auth' Component={Auth} />
+            <Route path='/dashboard' element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
         </Routes>
         <Footer />
     </BrowserRouter>

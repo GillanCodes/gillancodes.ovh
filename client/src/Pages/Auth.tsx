@@ -19,10 +19,8 @@ export default function Auth() {
                 password: logs.password
             }
         }).then((res) => {
-            // const win:Window = window;
-            // win.location = '/';
-            console.log(res);
-            console.log("logged !")
+            const win:Window = window;
+            win.location = '/';
         }).catch((err) => {
             console.log(err);
         });
