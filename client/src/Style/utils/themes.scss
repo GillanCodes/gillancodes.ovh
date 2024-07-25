@@ -6,6 +6,7 @@
     --secondary: #4e227a;
     --accent: #8d44d5;
     --glass: rgba(78, 34, 122, .4);
+    --bg-svg: 0%;
 }
 
 [data-theme="light"] {
@@ -15,4 +16,5 @@
     --secondary: #abbce0;
     --accent: #c98106;
     --glass: #abbce0;
+    --bg-svg: 100%;
 }

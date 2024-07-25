@@ -30,9 +30,8 @@
     background-repeat: repeat;
     opacity: .7;
     pointer-events: none;
-
-    // Todo : Invert svg color
-    filter: invert(0%) sepia(0%) saturate(7498%) hue-rotate(203deg) brightness(89%) contrast(94%);
+    
+    filter: invert(var(--bg-svg)) 
 }
 
 .container
