@@ -108,6 +108,12 @@ main#dashboard
                         background-color: var(--primary);
                         color: var(--background);
                         cursor: pointer;
+
+                        &:hover
+                        {
+                            background-color: var(--secondary);
+                            color: var(--primary);
+                        }
                     }
 
                     .addon
