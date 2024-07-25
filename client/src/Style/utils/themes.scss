@@ -7,6 +7,7 @@
     --accent: #8d44d5;
     --glass: rgba(78, 34, 122, .4);
     --bg-svg: 0%;
+    --icons: 100%;
 }
 
 [data-theme="light"] {
@@ -17,4 +18,5 @@
     --accent: #c98106;
     --glass: #abbce0;
     --bg-svg: 100%;
+    --icons: 0%;
 }

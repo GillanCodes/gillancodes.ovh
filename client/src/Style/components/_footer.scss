@@ -19,8 +19,10 @@ footer
             gap: 10px;
 
             a img {
-                height: 64px;
-                width: 64px;
+                height: 32px;
+                width: 32px;
+
+                filter: invert(var(--icons));
             }
         }
 
