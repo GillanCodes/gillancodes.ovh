@@ -53,25 +53,25 @@ export default function TechsForm() {
           <h2>Category</h2>
           <div className="field">
               <label>
-                <input type="radio" name="back" value="back" checked={option === "back"} onClick={handleRadio}/>
+                <input type="radio" name="back" value="back" checked={option === "back"} onChange={handleRadio}/>
                 BackEnd
               </label>
           </div>
           <div className="field">
               <label>
-                <input type="radio" name="front" value="front" checked={option === "front"} onClick={handleRadio}/>
+                <input type="radio" name="front" value="front" checked={option === "front"} onChange={handleRadio}/>
                 FrontEnd
               </label>
           </div>
           <div className="field">
               <label>
-                <input type="radio" name="soft" value="soft" checked={option === "soft"} onClick={handleRadio}/>
+                <input type="radio" name="soft" value="soft" checked={option === "soft"} onChange={handleRadio}/>
                 Soft
               </label>
           </div>
           <div className="field">
               <label>
-                <input type="radio" name="lang" value="lang" checked={option === "lang"} onClick={handleRadio}/>
+                <input type="radio" name="lang" value="lang" checked={option === "lang"} onChange={handleRadio}/>
                 Lang
               </label>
           </div>

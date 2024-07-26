@@ -28,10 +28,6 @@ export default function WorksForm() {
 
     const dispatch:any = useDispatch();
 
-    useEffect(() => {
-        console.log(work);
-    }, [work])
-
     const tagHandle = (e:React.FormEvent) => {
         e.preventDefault();
         setWork({...work, tags: [...work.tags, tag]})
