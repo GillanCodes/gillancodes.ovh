@@ -43,6 +43,7 @@ export default function Home() {
                 {works.map((work:any, key:number) => {
                   return (
                     <WorkCard 
+                      id={work._id}
                       icon={work.icon} 
                       name={work.name} 
                       description={work.description[getCookie('lang')!]} 

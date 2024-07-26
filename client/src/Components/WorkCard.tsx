@@ -1,3 +1,8 @@
+import { useContext, useEffect } from "react"
+import { UIdContext } from "../App.context"
+import { isEmpty } from "../Utils/IsEmpty";
+import { useDispatch } from "react-redux";
+import { deleteWork } from "../actions/works.action";
 
 interface ITag
 {
@@ -5,25 +10,34 @@ interface ITag
     color: string
 }
 
-export default function WorkCard({icon, name, description, tags}: {icon:string, name:string, description:string, tags:any}) {
-  return (
-    <li className='work-card'>
-        <div className="head">
-            <div id='icon'>
-                <img src={`${process.env.REACT_APP_CDN_URL}/${icon}`} alt={"i"} />
+export default function WorkCard({id, icon, name, description, tags}: {id:string, icon:string, name:string, description:string, tags:any}) {
+
+    const UId = useContext(UIdContext);
+    const dispatch:any = useDispatch();
+
+    const delHandle = () => {
+        dispatch(deleteWork(id));
+    }
+
+    return (
+        <li className='work-card'>
+            <div className="head">
+                <div id='icon'>
+                    <img src={`${process.env.REACT_APP_CDN_URL}/${icon}`} alt={"i"} />
+                </div>
+                <p>{name}</p>
+                {!isEmpty(UId) && ( <p className="del-btn" onClick={delHandle}>Delete</p> )}
             </div>
-            <p>{name}</p>
-        </div>
-        <div className="body">
-            <p>{description}</p>
-        </div>
-        <div className="footer">
-            {tags && tags.map((tag: ITag, key:number) => {
-                return (
-                    <span className={`tag ${tag.color}`} key={key} style={{backgroundColor:tag.color}}>{tag.name}</span>
-                )
-            })}
-        </div>
-    </li>
-  )
+            <div className="body">
+                <p>{description}</p>
+            </div>
+            <div className="footer">
+                {tags && tags.map((tag: ITag, key:number) => {
+                    return (
+                        <span className={`tag ${tag.color}`} key={key} style={{backgroundColor:tag.color}}>{tag.name}</span>
+                    )
+                })}
+            </div>
+        </li>
+    )
 }
