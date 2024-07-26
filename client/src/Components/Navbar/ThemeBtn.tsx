@@ -3,7 +3,7 @@ import { getCookie } from "../../Utils";
 
 export default function ThemeBtn() {
 
-    const [cTheme, setCTheme] = useState(getCookie('theme'));
+    const [cTheme, setCTheme] = useState(getCookie('theme') ? getCookie('theme') : "dark");
 
     const themeHandle = () => {
 
@@ -13,7 +13,8 @@ export default function ThemeBtn() {
         if (!theme)
         {
             document.cookie = "theme=light";
-            const e = new CustomEvent('theme', {detail: "light"})
+            const e = new CustomEvent('theme', {detail: "light"});
+            setCTheme('light');
             return document.dispatchEvent(e);
         }
             
