@@ -30,8 +30,8 @@ export default function Navbar() {
         <div className="controls">
             {UId && (
               <>
-                <p className="nav-btn" onClick={logout}>L</p>
-                <NavLink to={"/dashboard"} className={"nav-btn"}>D</NavLink>
+                <p className="nav-btn" onClick={logout} title="Logout">L</p>
+                <NavLink to={"/dashboard"} className={"nav-btn"} title="Dashboard">D</NavLink>
               </>
             )}
             <ThemeBtn />
