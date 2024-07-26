@@ -20,7 +20,6 @@ export default function Home() {
     if (!isEmpty(works)) setLoadWork(true);
     if (!isEmpty(techs)) setLoadTech(true);
     if (!isEmpty(studies)) setLoadStudy(true);
-    console.log(works)
   }, [works, techs, studies])
 
   return (
@@ -71,6 +70,7 @@ export default function Home() {
                   if (tech.category === "back")
                     return (
                       <TechnoCard 
+                        id={tech._id}
                         icon={tech.icon}
                         name={tech.name}
                         color={tech.color}
@@ -88,6 +88,7 @@ export default function Home() {
                   if (tech.category === "front")
                     return (
                       <TechnoCard 
+                        id={tech._id}
                         icon={tech.icon}
                         name={tech.name}
                         color={tech.color}
@@ -105,6 +106,7 @@ export default function Home() {
                   if (tech.category === "soft")
                     return (
                       <TechnoCard 
+                        id={tech._id}
                         icon={tech.icon}
                         name={tech.name}
                         color={tech.color}
@@ -122,6 +124,7 @@ export default function Home() {
                   if (tech.category === "lang")
                     return (
                       <TechnoCard 
+                        id={tech._id}
                         icon={tech.icon}
                         name={tech.name}
                         color={tech.color}

@@ -44,6 +44,18 @@
     color: var(--accent);
 }
 
+.del-btn
+{
+    text-decoration: underline;
+    color: rgb(255, 85, 85);
+    cursor: pointer;
+
+    &:hover
+    {
+        color: red;
+    }
+}
+
 @media screen and (min-width: 1150px) {
     .container
     {
