@@ -24,7 +24,7 @@ export default function Dashboard() {
         </ul>
       </div>
 
-      <div className="content">
+      <div className="form-content">
 
         {searchParams.get("tab") === "works" && (
           <WorksForm />

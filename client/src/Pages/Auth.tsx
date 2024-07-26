@@ -27,24 +27,32 @@ export default function Auth() {
     }
 
     return (
-        <main>
-            <form onSubmit={submitHandle}>
-                <div className="fields">
-                    <div className="field">
-                        <label htmlFor="">Username</label>
-                        <input type="text" name="username" id="username" onChange={(e:any) => setLogs({...logs, username:e.target.value})}/>
-                    </div>
-                    <div className="field">
-                        <label htmlFor="">Password</label>
-                        <input type="password" name="pswd" id="pswd" onChange={(e:any) => setLogs({...logs, password:e.target.value})}/>
-                    </div>
+        <main id='auth'>
+            <div className="form-content">
+                <h2>Auth</h2>
+                <div className="form-container">
+                    <form onSubmit={submitHandle}>
+                        <div className="fields">
+                            <div className="field">
+                                <label htmlFor="">Username</label>
+                                <input type="text" name="username" id="username" onChange={(e:any) => setLogs({...logs, username:e.target.value})}/>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="">Password</label>
+                                <input type="password" name="pswd" id="pswd" onChange={(e:any) => setLogs({...logs, password:e.target.value})}/>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div className="fields">
+                            <div className="field">
+                                <input type="submit" value="Login" className='button' />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div className="fields">
-                    <div className="field">
-                        <input type="submit" value="Login" />
-                    </div>
-                </div>
-            </form>
+            </div>
         </main>
     )
 }
