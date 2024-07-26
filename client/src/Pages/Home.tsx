@@ -2,15 +2,20 @@ import React, { useContext, useEffect, useState } from 'react'
 import { getTranslation } from '../langs/translation'
 import TechnoCard from '../Components/TechnoCard'
 import WorkCard from '../Components/WorkCard'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { isEmpty } from '../Utils/IsEmpty'
 import { getCookie } from '../Utils'
+import { UIdContext } from '../App.context'
+import { deleteStudy } from '../actions/study.action'
 
 export default function Home() {
 
   const works = useSelector((state:any) => state.worksReducer);
   const techs = useSelector((state:any) => state.techsReducer);
   const studies = useSelector((state:any) => state.studyReducer);
+
+  const dispatch:any = useDispatch();
+  const UId = useContext(UIdContext);
 
   const [loadTech, setLoadTech] = useState(false);
   const [loadWork, setLoadWork] = useState(false);
@@ -21,6 +26,10 @@ export default function Home() {
     if (!isEmpty(techs)) setLoadTech(true);
     if (!isEmpty(studies)) setLoadStudy(true);
   }, [works, techs, studies])
+
+  const delStudy = (id:string) => {
+    dispatch(deleteStudy(id));
+  }
 
   return (
     <main>
@@ -152,7 +161,7 @@ export default function Home() {
                 return (
                   <div className={`container ${key % 2 ? "left" : "right"}`} key={key}>
                     <div className="content">
-                      <h3>{study.year}</h3>
+                      <h3>{study.year} {!isEmpty(UId) && ( <p className="del-btn" onClick={() => delStudy(study._id)}>Delete</p> )} </h3>
                       <p>{study.description[getCookie('lang')!]}</p>
                     </div>
                   </div>
