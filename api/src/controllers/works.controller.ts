@@ -38,7 +38,7 @@ export const createWork = async (req: any, res: Response) => {
        if (!res.locals.user)
         throw new Error("permission_refused: must be log to do that action !") 
 
-        const { name, description, tags } = req.body;
+        const { name, description, tags, link } = req.body;
         const file = req.file;
         
         const fileName = genUId() + ".png";
@@ -49,6 +49,7 @@ export const createWork = async (req: any, res: Response) => {
         const work = await workModel.create({
             icon: fileName,
             name,
+            link,
             description: JSON.parse(description),
             tags: JSON.parse(tags)
         })
@@ -71,7 +72,7 @@ export const editWork = async (req: any, res: Response) => {
         if (!isValidObjectId(id))
             throw new Error('invalid_id');
 
-        const { name, description, tags } = req.body;
+        const { name, description, tags, link } = req.body;
         const file = req.file;
         
         const fileName = genUId() + ".png";
@@ -84,6 +85,7 @@ export const editWork = async (req: any, res: Response) => {
             name,
             description,
             tags,
+            link,
         }, {new:true, upsert: true}).then((data) => {
             return res.status(201).json(data);
         }).catch((err) => {
