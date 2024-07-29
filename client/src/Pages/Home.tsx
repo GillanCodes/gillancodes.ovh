@@ -56,6 +56,7 @@ export default function Home() {
                       name={work.name} 
                       description={work.description[getCookie('lang')!]} 
                       tags={work.tags} 
+                      link={work.link}
                       key={key}
                     />
                   )

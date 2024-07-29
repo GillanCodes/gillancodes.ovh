@@ -10,7 +10,7 @@ interface ITag
     color: string
 }
 
-export default function WorkCard({id, icon, name, description, tags}: {id:string, icon:string, name:string, description:string, tags:any}) {
+export default function WorkCard({id, icon, name, description, tags, link}: {id:string, icon:string, name:string, description:string, tags:any, link:any}) {
 
     const UId = useContext(UIdContext);
     const dispatch:any = useDispatch();
@@ -25,7 +25,12 @@ export default function WorkCard({id, icon, name, description, tags}: {id:string
                 <div id='icon'>
                     <img src={`${process.env.REACT_APP_CDN_URL}/${icon}`} alt={"i"} />
                 </div>
-                <p>{name}</p>
+                {isEmpty(link) ? 
+                (
+                    <p>{name}</p>
+                ) : (
+                    <a href={link} target="_BLANK">{name}</a>
+                )}
                 {!isEmpty(UId) && ( <p className="del-btn" onClick={delHandle}>Delete</p> )}
             </div>
             <div className="body">
