@@ -87,6 +87,7 @@ export default function Home() {
                         key={key}
                       />
                     )
+                    return null;
                 })}  
               </ul> 
             </div>
@@ -105,6 +106,7 @@ export default function Home() {
                         key={key}
                       />
                     )
+                    return null;
                 })}  
               </ul> 
             </div>
@@ -123,12 +125,13 @@ export default function Home() {
                         key={key}
                       />
                     )
+                  return null;
                 })}  
               </ul> 
             </div>
 
             <div className="category">
-              <h3>Languages</h3>
+              <h3>Others</h3>
               <ul className='grid'>
                 {techs.map((tech:any, key:number) => {
                   if (tech.category === "lang")
@@ -141,6 +144,7 @@ export default function Home() {
                         key={key}
                       />
                     )
+                    return null;
                 })}  
               </ul> 
             </div>

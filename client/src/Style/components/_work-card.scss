@@ -52,14 +52,20 @@
         margin-left: 10px;
 
         display: flex;
+        flex-wrap: wrap;
         gap: 5px;
+
+        max-height: 150px;
+
+        overflow: hidden;
 
         .tag
         {
             padding: 5px 10px;
             border-radius: 10px;
             font-size: 14px;
-            background-color: blue;
+            height: fit-content;
+            color: black;
         }
 
         .tag.red {background-color: pink;}
