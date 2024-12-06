@@ -17,6 +17,18 @@ app.use(bodyParser.urlencoded({limit: "1kb", extended: true, parameterLimit: 500
 app.use(bodyParser.json({limit: "1kb"}));
 app.use(cookieParser());
 
+//Log all the request
+app.use((req:express.Request, _res:express.Response, next) => {
+    log(`${req.method} ${req.url}`, 0);
+    if (req.body) 
+    {
+        let obj = req.body;
+        if (obj.password) obj.password = "******";
+        log(JSON.stringify(obj), 0);
+    }
+    next();
+})
+
 //Config CORS
     //This array is all the allowed ip to this api
 let whiteList = [undefined, 'http://localhost:5000', 'http://localhost:3000', "http://192.168.1.49:3000"];
@@ -53,6 +65,7 @@ import studiesRoutes from "./src/routes/studies.routes";
 import worksRoutes from "./src/routes/works.routes";
 import techRoutes from "./src/routes/tech.routes";
 import userRoutes from "./src/routes/user.routes";
+import { isEmpty } from "validator";
 
 //Routes init
 app.use("/api/auth", authRoutes);
