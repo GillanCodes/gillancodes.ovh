@@ -13,8 +13,8 @@ let app:express.Application = express();
 require("./config/database");
 
 //Config body-parse && cookie-parser
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit: 50000}));
-app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "1kb", extended: true, parameterLimit: 50000}));
+app.use(bodyParser.json({limit: "1kb"}));
 app.use(cookieParser());
 
 //Config CORS
