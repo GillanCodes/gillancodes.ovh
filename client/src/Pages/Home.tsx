@@ -35,7 +35,7 @@ export default function Home() {
     <main>
       <section id='introduction'>
         <div className="texts">
-          <h1>Gillian <span className='highlight'>Gund</span>, <br /> {getTranslation("introduction", "work")}</h1>
+          <h1>Gillan<span className='highlight'>Codes</span>, <br /> {getTranslation("introduction", "work")}</h1>
           <p>{getTranslation("introduction", "description")} <span className='highlight'>ReactJs</span>, <span className='highlight'>NodeJs</span> & <span className='highlight'>MongoDB</span></p>
         </div>
         <img src="/memo.png" alt="Logo" className='protrait' />
