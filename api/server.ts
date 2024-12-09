@@ -13,7 +13,7 @@ let app:express.Application = express();
 require("./config/database");
 
 //Config body-parse && cookie-parser
-app.use(bodyParser.urlencoded({limit: "1kb", extended: true, parameterLimit: 50000}));
+app.use(bodyParser.urlencoded({limit: "1kb", extended: true, parameterLimit: 100}));
 app.use(bodyParser.json({limit: "1kb"}));
 app.use(cookieParser());
 
@@ -28,6 +28,18 @@ app.use((req:express.Request, _res:express.Response, next) => {
     }
     next();
 })
+
+
+app.use('/cdn', (req, res, next) => {
+	if (req.method !== "GET") return res.status(405).json({message: "not allowed by cors"});
+     	next();
+});
+
+app.use('/cdn', express.static(config.CDN_PATH, {
+  setHeaders: (res, path) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  }		      
+}));
 
 //Config CORS
     //This array is all the allowed ip to this api
@@ -57,7 +69,6 @@ app.get('/api/jwtid', requireAuth, (req:express.Request, res:express.Response) =
     res.status(200).send(res.locals.user.id);
 });
 
-app.use('/cdn', express.static(config.CDN_PATH));
 
 //import routes
 import authRoutes from "./src/routes/auth.routes";
