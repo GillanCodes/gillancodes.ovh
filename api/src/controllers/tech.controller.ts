@@ -8,7 +8,7 @@ import sanitizedConfig from "../../config/config";
 export const getTechnos = async (req: Request, res:Response) => {
     try {
         
-        const techs = await technoModel.find();
+        const techs = await technoModel.find().sort({'createdAt': -1});
         return res.status(200).json(techs);
         
     } catch (error) {

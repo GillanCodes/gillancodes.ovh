@@ -5,7 +5,7 @@ import { isValidObjectId } from "mongoose";
 
 export const getStudies = async (req:Request, res:Response) => {
     try {
-        const studies = await studyModel.find();
+        const studies = await studyModel.find().sort({'createdAt': -1});
         return res.status(200).json(studies);
     } catch (error) {
         return console.log(error);

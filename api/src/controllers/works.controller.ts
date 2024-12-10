@@ -8,7 +8,7 @@ import * as fs from "fs";
 export const getWorks = async (req: Request, res: Response) => {
     try {
 
-        const works = await workModel.find();
+        const works = await workModel.find().sort({'createdAt': -1});
         return res.status(200).json(works)
 
     } catch (error) {
