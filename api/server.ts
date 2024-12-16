@@ -29,7 +29,6 @@ app.use((req:express.Request, _res:express.Response, next) => {
     next();
 })
 
-
 app.use('/cdn', (req, res, next) => {
 	if (req.method !== "GET") return res.status(405).json({message: "not allowed by cors"});
      	next();
@@ -76,7 +75,7 @@ import studiesRoutes from "./src/routes/studies.routes";
 import worksRoutes from "./src/routes/works.routes";
 import techRoutes from "./src/routes/tech.routes";
 import userRoutes from "./src/routes/user.routes";
-import { isEmpty } from "validator";
+import annouceRoutes from "./src/routes/annouce.routes";
 
 //Routes init
 app.use("/api/auth", authRoutes);
@@ -84,6 +83,7 @@ app.use("/api/study", studiesRoutes);
 app.use("/api/work", worksRoutes);
 app.use("/api/tech", techRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/announce", annouceRoutes)
 
 //Set up server listen
 app.listen(config.PORT, () : void => {
