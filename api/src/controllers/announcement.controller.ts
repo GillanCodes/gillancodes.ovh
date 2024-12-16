@@ -39,7 +39,7 @@ export const postAnnounce = async (req:Request, res:Response) => {
 
   const announce = await announceModel.create({
     title,
-    content,
+    content: JSON.parse(content),
     active
   });
   

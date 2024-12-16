@@ -4,10 +4,10 @@ import { mongoSchema } from "./mongoSchema.type";
 export default class Announce extends mongoSchema
 {
   title: string;
-  content: string;
+  content: object;
   active: boolean | undefined;
   
-  constructor({title, content, active, _id, createdAt, updatedAt}: {title:string, content:string, active?:boolean, _id:string, createdAt:string, updatedAt:string})
+  constructor({title, content, active, _id, createdAt, updatedAt}: {title:string, content:object, active?:boolean, _id:string, createdAt:string, updatedAt:string})
   {
     super({_id, createdAt, updatedAt});
     this.title = title;

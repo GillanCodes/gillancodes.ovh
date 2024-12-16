@@ -3,7 +3,7 @@ import Announce from "../types/announce.type";
 
 const announceSchema = new Schema<Announce>({
   title: {type:String, required:true},
-  content : {type:String, required:true},
+  content: {type:Object, required:true},
   active : {type: Boolean, default:false}
 }, {timestamps:true});
 
