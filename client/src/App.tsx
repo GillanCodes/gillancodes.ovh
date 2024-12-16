@@ -9,6 +9,7 @@ import { getStudies } from './actions/study.action';
 import { UIdContext } from './App.context';
 import axios from 'axios';
 import { getUser } from './actions/user.action';
+import { getAnnounce } from './actions/announce.action';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
     dispatch(getWorks());
     dispatch(getTechs());
     dispatch(getStudies());
+    dispatch(getAnnounce());
   }, []);
 
   useEffect(() => {
