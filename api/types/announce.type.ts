@@ -17,13 +17,15 @@ export default class Announce extends mongoSchema
 
   async switchActive()
   {
-    const newAnnounce = await announceModel.findByIdAndUpdate(this._id, {
+    const active = !this.active
+
+    this.active = active
+    
+    await announceModel.findByIdAndUpdate(this._id, {
       $set: {
-        active: !this.active 
+        active
       }
     });
-
-    return newAnnounce;
   }
 
 }

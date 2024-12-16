@@ -50,8 +50,15 @@ export const switchAnnounce = async (req:Request, res:Response) => {
   if (!res.locals.user) return res.status(403).send("permission_refused");
   const { id } = req.params;
 
-  if (isEmpty(id) || !isValidObjectId(id)) return res.status(200).send("error: missing ou invalid id");
-  
+  if (isEmpty(id) || !isValidObjectId(id)) return res.status(200).send("error: missing ou invalid id"); 
+
+  const activeAnn:Announce | null = await announceModel.findOne({active:true});
+  if (activeAnn)
+  {
+    const announce = new Announce(activeAnn);
+    announce.switchActive();
+  }
+
   const reqAnn:Announce | null = await announceModel.findById(id);
   if (!reqAnn) return res.status(200).send('error: announce do not exist');  
   const announce = new Announce(reqAnn);
