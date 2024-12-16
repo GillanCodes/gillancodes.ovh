@@ -105,23 +105,25 @@ export default function AnnounceForm()
       {!isEmpty(announces) && load && (
         <>   
           <h2>Past Announces</h2>
-          {announces.map((announce:any, key:number) => {
-            return (
-              <div className="announce-card" key={key}>
-                <div className="announce-card__head">
-                  <p>{announce.title}</p>
-                  <span>Active ? <input type="checkbox" checked={announce.active} onClick={() => switchHandle(announce._id)} /></span>
-                  <p onClick={() => deleteHandle(announce._id)}>Delete</p>
-                </div>
-                <div className="announce-card__content">
-                  <p>{announce.content["fr_fr"]}</p>
-                  <p>{announce.content["en_us"]}</p>
-                  <p>{announce.content["de_de"]}</p>
-                  <p>{announce.content["es_es"]}</p>
-                </div>
-              </div>
-            )
-          })}
+            <div className="announce_cards">
+              {announces.map((announce:any, key:number) => {
+                return (
+                  <div className="announce-card" key={key}>
+                    <div className="announce-card__head">
+                      <p>{announce.title}</p>
+                      <span>Active ? <input type="checkbox" checked={announce.active} onClick={() => switchHandle(announce._id)} /></span>
+                      <p onClick={() => deleteHandle(announce._id)}>Delete</p>
+                    </div>
+                    <div className="announce-card__content">
+                      <p>{announce.content["fr_fr"]}</p>
+                      <p>{announce.content["en_us"]}</p>
+                      <p>{announce.content["de_de"]}</p>
+                      <p>{announce.content["es_es"]}</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
         </>
       )}
     </div>

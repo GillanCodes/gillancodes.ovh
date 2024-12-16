@@ -45,7 +45,7 @@ export default function Home() {
 
       {!isEmpty(announce) && (
         <div className='announce' id="announcement">
-          <h2 className='announce__title'>{announce.title} - {transformDate(announce.updatedAt)} {announce.createdAt !== announce.updatedAt && "(Edited)"}</h2>
+          <h2 className='announce__title'>{announce.title} - {transformDate(announce.createdAt)}</h2>
           <p className='announce__content'>{announce.content[getCookie('lang')!]}</p>
         </div>
       )}      
