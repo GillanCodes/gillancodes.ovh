@@ -18,7 +18,7 @@ export const getCurrentAnnounce = async(_req:Request, res:Response) => {
 export const getAnnounces = async(_req:Request, res:Response) => {
   try {
     const announces = await announceModel.find();
-    res.status(200).json({announces});
+    res.status(200).json(announces);
   } catch (error:any) {
     log(error, 0);
   }
@@ -28,6 +28,8 @@ export const postAnnounce = async (req:Request, res:Response) => {
   if (!res.locals.user) return res.status(403).send("permission_refused"); 
   const {title, content, active} = req.body;
   
+  console.log(content)
+
   if (active) 
   {
     await announceModel.findOneAndUpdate({active:true}, {
