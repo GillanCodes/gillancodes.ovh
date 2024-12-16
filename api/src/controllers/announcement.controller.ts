@@ -106,3 +106,18 @@ export const switchAnnounce = async (req:Request, res:Response) => {
     console.log(error);    
   } 
 }
+
+export const deleteAnnounce = async (req:Request, res:Response) => {
+  try {
+    if (!res.locals.user) return res.status(403).send("permission_refused");
+    const { id } = req.params;
+
+    if (isEmpty(id) || !isValidObjectId(id)) return res.status(200).send("error: missing ou invalid id"); 
+
+    const announce = await announceModel.findByIdAndDelete(id);
+    return res.status(200).send(announce);
+
+  } catch (error) {
+    console.log(error);    
+  } 
+}
