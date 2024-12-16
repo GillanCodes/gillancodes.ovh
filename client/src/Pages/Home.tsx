@@ -7,12 +7,14 @@ import { isEmpty } from '../Utils/IsEmpty'
 import { getCookie } from '../Utils'
 import { UIdContext } from '../App.context'
 import { deleteStudy } from '../actions/study.action'
+import { transformDate } from '../Utils/convertDate'
 
 export default function Home() {
 
   const works = useSelector((state:any) => state.worksReducer);
   const techs = useSelector((state:any) => state.techsReducer);
   const studies = useSelector((state:any) => state.studyReducer);
+  const announce = useSelector((state:any) => state.announceReducer);
 
   const dispatch:any = useDispatch();
   const UId = useContext(UIdContext);
@@ -40,6 +42,14 @@ export default function Home() {
         </div>
         <img src="/memo.png" alt="Logo" className='protrait' />
       </section>
+
+      {!isEmpty(announce) && (
+        <div className='announce' id="announcement">
+          <h2 className='announce__title'>{announce.title} - {transformDate(announce.updatedAt)} {announce.createdAt !== announce.updatedAt && "(Edited)"}</h2>
+          <p className='announce__content'>{announce.content[getCookie('lang')!]}</p>
+        </div>
+      )}      
+
       <section id='works'>
         <h2 className='title'>{getTranslation("work", "title")}</h2>
         <hr />

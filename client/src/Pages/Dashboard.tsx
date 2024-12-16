@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import WorksForm from '../Components/Dashboard/WorksForm';
 import TechsForm from '../Components/Dashboard/TechsForm';
 import StudiesForm from '../Components/Dashboard/StudiesForm';
+import AnnounceForm from '../Components/Dashboard/AnnounceForm';
 
 
 export default function Dashboard() {
@@ -21,6 +22,7 @@ export default function Dashboard() {
           <li className={searchParams.get('tab') === "works" ? "active": ""} onClick={() => setSearchParams({'tab': "works"})}>Works</li>
           <li className={searchParams.get('tab') === "techs" ? "active": ""} onClick={() => setSearchParams({'tab': "techs"})}>Techs</li>
           <li className={searchParams.get('tab') === "studies" ? "active": ""} onClick={() => setSearchParams({"tab": "studies"})}>Studies</li>
+          <li className={searchParams.get('tab') === "announce" ? "active": ""} onClick={() => setSearchParams({"tab": "announce"})}>Announces</li>
         </ul>
       </div>
 
@@ -34,6 +36,9 @@ export default function Dashboard() {
         )}
         {searchParams.get("tab") === "studies" && (
           <StudiesForm />
+        )}
+        {searchParams.get("tab") === "announce" && (
+          <AnnounceForm />
         )}
       </div>
 
