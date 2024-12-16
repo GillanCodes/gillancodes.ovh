@@ -17,7 +17,7 @@ export const getCurrentAnnounce = async(_req:Request, res:Response) => {
 
 export const getAnnounces = async(_req:Request, res:Response) => {
   try {
-    const announces = await announceModel.find();
+    const announces = await announceModel.find().sort({createdAt:-1});
     res.status(200).json(announces);
   } catch (error:any) {
     log(error, 0);
