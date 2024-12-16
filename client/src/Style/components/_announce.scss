@@ -1,0 +1,15 @@
+.announce
+{
+  
+  background-color: var(--glass);
+  border-radius: .375rem;
+  padding: 1em;
+
+  margin-bottom: 1em;
+
+  &__title
+  {
+    color: var(--text);
+    text-decoration: underline;
+  }
+}
