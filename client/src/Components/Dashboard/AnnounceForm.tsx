@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { createAnnounce, deleteAnnounce, getAnnounces, switchAnnounce } from "../../actions/announce.action";
+import { createAnnounce, deleteAnnounce, editAnnounce, getAnnounces, switchAnnounce } from "../../actions/announce.action";
 import { isEmpty } from "../../Utils/IsEmpty";
 
 export default function AnnounceForm()
@@ -10,6 +10,7 @@ export default function AnnounceForm()
   const announces = useSelector((state:any) => state.announceReducer);
 
   const [load, setLoad] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   
   const [newAnnounce, setNewAnnounce] = useState({
         "title": "",
@@ -50,6 +51,46 @@ export default function AnnounceForm()
 
   const deleteHandle = (id:string) => {
     dispatch(deleteAnnounce(id));
+  }
+
+  const editModeHandle = (announce:any) => {
+    if (editMode)
+    {
+      setNewAnnounce({
+        "title": "",
+        "content": {
+            fr_fr: "",
+            en_us: "",
+            es_es: "",
+            de_de: "",
+        },
+        active: false
+      });
+      setEditMode(false);
+    } else {
+      setNewAnnounce({
+        "title": announce.title,
+        "content" : announce.content,
+        active: announce.active,
+      });
+      setEditMode(true);
+    }
+  }
+
+  const editHandle = (id:string) => {
+    dispatch(editAnnounce(newAnnounce, id)).then(() => {
+      setNewAnnounce({
+        "title": "",
+        "content": {
+            fr_fr: "",
+            en_us: "",
+            es_es: "",
+            de_de: "",
+        },
+        active: false
+      });
+      setEditMode(false);
+    });
   }
 
   return (
@@ -113,13 +154,41 @@ export default function AnnounceForm()
                       <p>{announce.title}</p>
                       <span>Active ? <input type="checkbox" checked={announce.active} onClick={() => switchHandle(announce._id)} /></span>
                       <p onClick={() => deleteHandle(announce._id)}>Delete</p>
+                      <p onClick={() => editModeHandle(announce)}>{editMode ? "Cancel" : "Edit"}</p>
                     </div>
-                    <div className="announce-card__content">
-                      <p>{announce.content["fr_fr"]}</p>
-                      <p>{announce.content["en_us"]}</p>
-                      <p>{announce.content["de_de"]}</p>
-                      <p>{announce.content["es_es"]}</p>
+                    {editMode ? (
+                      <form>
+                      <div className="fields">
+                        <div className="field">
+                            <label>Text Français</label>
+                            <textarea name="" id="" rows={5} onChange={(e) => setNewAnnounce({...newAnnounce, content: {...newAnnounce.content, fr_fr:e.target.value}})} value={newAnnounce.content.fr_fr}></textarea>
+                        </div>
+                        <div className="field">
+                            <label>Text English</label>
+                            <textarea name="" id="" rows={5} onChange={(e) => setNewAnnounce({...newAnnounce, content: {...newAnnounce.content, en_us:e.target.value}})} value={newAnnounce.content.en_us}></textarea>
+                        </div>
+                        <div className="field">
+                            <label>Text Deutsch</label>
+                            <textarea name="" id="" rows={5} onChange={(e) => setNewAnnounce({...newAnnounce, content: {...newAnnounce.content, de_de:e.target.value}})} value={newAnnounce.content.de_de}></textarea>
+                        </div>
+                        <div className="field">
+                            <label>Text Espanol</label>
+                            <textarea name="" id="" rows={5} onChange={(e) => setNewAnnounce({...newAnnounce, content: {...newAnnounce.content, es_es:e.target.value}})} value={newAnnounce.content.es_es}></textarea>
+                        </div>
+                        <div className="field">
+                          <button type="button" onClick={() => editHandle(announce._id)}>Save</button>
+                        </div>
                     </div>
+                    </form>
+                    ) : (
+                      <div className="announce-card__content">
+                        <p>{announce.content["fr_fr"]}</p>
+                        <p>{announce.content["en_us"]}</p>
+                        <p>{announce.content["de_de"]}</p>
+                        <p>{announce.content["es_es"]}</p>
+                      </div>
+                    )}
+                    
                   </div>
                 )
               })}

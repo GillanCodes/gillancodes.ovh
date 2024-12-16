@@ -68,6 +68,24 @@ export const switchAnnounce = (id:string) => {
     }
 }
 
+export const editAnnounce = ({title, content, active}: {title:string, content:object, active:boolean}, id:string) => {
+    return (dispatch:any) => {
+        return axios({
+            method: "PATCH",
+            url: `${process.env.REACT_APP_API_URL}/announce/${id}`,
+            withCredentials:true,
+            data: {
+              title,
+              content,
+              active
+            }
+        }).then((res) => {
+            dispatch({type: EDIT_ANNOUNCE, payload: res.data});
+        }).catch((err) => {
+            return console.log(err);
+        })
+    }
+}
 export const deleteAnnounce = (id:string) => {
     return (dispatch:any) => {
         return axios({
