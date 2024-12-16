@@ -1,3 +1,4 @@
+import announceModel from "../models/announcement";
 import { mongoSchema } from "./mongoSchema.type";
 
 export default class Announce extends mongoSchema
@@ -12,6 +13,17 @@ export default class Announce extends mongoSchema
     this.title = title;
     this.content = content;
     this.active = active;
+  }
+
+  async switchActive()
+  {
+    const newAnnounce = await announceModel.findByIdAndUpdate(this._id, {
+      $set: {
+        active: !this.active 
+      }
+    });
+
+    return newAnnounce;
   }
 
 }
