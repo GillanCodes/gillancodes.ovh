@@ -1,0 +1,27 @@
+{
+  "name": "@this/common",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "gillancodes",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./class/*": "./dist/class/*.js",
+    "./utils/*": "./dist/utils/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "utils/*": ["./dist/utils/*"],
+      "class/*": ["./dist/class/*"],
+      ".": ["./dist/index.d.ts"]
+    }
+  }
+}

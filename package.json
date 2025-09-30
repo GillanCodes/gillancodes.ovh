@@ -1,0 +1,21 @@
+{
+  "name": "template-fullstack",
+  "version": "0.0.1",
+  "author": "gillancodes",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "common"
+  ],
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "concurrently" : "^8.2.2",
+    "typescript": "^5.3.3"
+  }
+}

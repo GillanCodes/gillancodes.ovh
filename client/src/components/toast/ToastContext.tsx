@@ -1,0 +1,57 @@
+import { ComponentProps, PropsWithChildren, createContext, useCallback, useContext, useRef, useState } from "react";
+import Toast from "./Toast";
+
+type Params = ComponentProps<typeof Toast> & {duration?: number}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const defaultPush = (_toast: Params) => {}
+
+const defaultValue = {
+    pushToastRef: {current: defaultPush}
+}
+
+const ToastContext = createContext(defaultValue);
+
+export function ToastContextProvider({children}: PropsWithChildren)
+{
+    const pushToastRef = useRef(defaultPush);
+    return <ToastContext.Provider value={{pushToastRef}}>
+        <Toasts />
+        {children}
+    </ToastContext.Provider>
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useToasts()
+{
+    const {pushToastRef} = useContext(ToastContext);
+    return {
+        pushToast: useCallback(
+            (toast: Params) => {
+                pushToastRef.current(toast);
+            }, 
+            [pushToastRef]
+        )
+    }
+}
+
+function Toasts()
+{
+    const [toasts, setToasts] = useState([] as Params[]);
+    const { pushToastRef } = useContext(ToastContext);
+    pushToastRef.current = ({duration, ...toast}: Params) => {
+        setToasts(v => [...v, toast]);
+        if (duration)
+        {
+            setTimeout(() => {
+                setToasts((v) => v.filter(t => t!== toast));
+            }, duration * 1000);
+        }
+    }
+    console.log(toasts);
+    return <div className={`toasts-container ${toasts.length > 0 ? "" : "none"}`}>
+        {toasts.map((toast, k) => {
+            return <Toast {...toast} key={k} />
+        })}
+    </div>  
+}
