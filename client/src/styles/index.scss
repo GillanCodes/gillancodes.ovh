@@ -1,25 +1,10 @@
-@import 'bulma/css/bulma.css';
+@use "bulma/sass" with (
+  $family-primary: '"Nunito", sans-serif',
+);
+
+@use 'modules/toasts';
 
 * {
   margin: 0;
 }
 
-.toasts-container.none {
-  display: none;
-}
-
-.toasts-container
-{
-  position: fixed;
-  top: 80px;
-  right: 25px;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-
-  z-index: 9;
-}
-
-.notification {
-  margin-bottom: 1.5em;
-}

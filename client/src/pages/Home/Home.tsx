@@ -1,3 +1,4 @@
+import ThemeSwitcher from "../../components/themeSwitcher/ThemeSwitcher";
 import { useToasts } from "../../components/toast/ToastContext";
 import "./Home.scss";
 
@@ -20,6 +21,8 @@ export default function Home()
       Home page 
 
       <button className="button is-info" onClick={toastTest}>Toast</button>
+
+      <ThemeSwitcher />
     </div>
   )
 }
