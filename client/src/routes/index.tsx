@@ -5,8 +5,6 @@ import NotFound from "../pages/Errors/NotFound";
 import NavBar from "../components/navbar/NavBar";
 import Auth from "../pages/Auth/Auth";
 import { Profil } from "../pages/Profil/Profil";
-import Ui from "../pages/Ui/Ui";
-
 export default function index() {
   return (
     <>
@@ -19,8 +17,6 @@ export default function index() {
           <Route path="/profil" element={<Profil />} />
 
           <Route path="*" element={<NotFound />} />
-
-          <Route path="/ui" element={<Ui />} />
 
           {/* ADMIN PART */}
           {/* <Route path='admin' element={<AdminLayout />}>
