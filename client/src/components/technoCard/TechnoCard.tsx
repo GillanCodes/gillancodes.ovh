@@ -1,3 +1,5 @@
+import './TechnoCard.scss';
+
 export default function TechnoCard({color = "#2779F5"} :  {color?: string}) {
         return (
 

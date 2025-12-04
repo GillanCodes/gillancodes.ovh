@@ -2,27 +2,32 @@ import ThemeSwitcher from "../../components/themeSwitcher/ThemeSwitcher";
 import { useToasts } from "../../components/toast/ToastContext";
 import "./Home.scss";
 
-export default function Home()
-{
-  
-  const { pushToast } = useToasts();
+export default function Home() {
 
-  const toastTest = () => {
-    pushToast({
-      title: "Test",
-      content: "This is a Test Toast",
-      type: "success",
-      duration: 5
-    })
-  }
+        const { pushToast } = useToasts();
 
-  return (
-    <div>
-      Home page 
+        const toastTest = () => {
+                pushToast({
+                        title: "Test",
+                        content: "This is a Test Toast",
+                        type: "success",
+                        duration: 5
+                })
+        }
 
-      <button className="button is-info" onClick={toastTest}>Toast</button>
+        return (
+                <div>
+                        Home page
 
-      <ThemeSwitcher />
-    </div>
-  )
+                        <button className="button is-info" onClick={toastTest}>Toast</button>
+
+                        <ThemeSwitcher />
+
+                        <div className="columns">
+                                <div className="column">
+
+                                </div>
+                        </div>
+                </div>
+        )
 }
