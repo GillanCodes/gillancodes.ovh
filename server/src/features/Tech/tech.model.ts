@@ -21,6 +21,10 @@ let techSchema = new Schema<Tech>({
                 required: true,
                 min: [0, "Percentage cant be under 0%"],
                 max: [100, "Percentage cant be above 100%"]
+        },
+        display: {
+                type: Boolean,
+                default: false,
         }
 }, {timestamps: true});
 

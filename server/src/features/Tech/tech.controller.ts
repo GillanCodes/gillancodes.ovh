@@ -18,20 +18,21 @@ export const getTech = async (req:Request, res:Response): Promise<void> => {
 }
 
 export const createTech = async(req:Request, res:Response): Promise<void> => {
-        const {name, icon, color, percentage} = req.body;
+        const {name, icon, color, percentage, display} = req.body;
         if (isEmpty(name) || isEmpty(percentage)) return void res.status(400).send({error: "empty_field"});
 
         const tech = await techModel.create({
                 name,
                 icon,
                 color,
-                percentage
+                percentage,
+                display
         });
         return void res.status(201).json(tech);
 }
 
 export const editTech = async(req:Request, res:Response): Promise<void> => {
-        const {name, icon, color, percentage} = req.body;
+        const {name, icon, color, percentage, display } = req.body;
         const { id } = req.params;
 
         if (isEmpty(id) || !isValidObjectId(id)) return void res.status(400).json({error: "invalid_id"});
@@ -40,7 +41,8 @@ export const editTech = async(req:Request, res:Response): Promise<void> => {
                 name,
                 icon,
                 color,
-                percentage
+                percentage,
+                display
         });
         return void res.status(200).json(tech);
 }
