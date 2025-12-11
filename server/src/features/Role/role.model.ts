@@ -62,5 +62,5 @@ roleSchema.statics.syncAllRolesPermissions = async function() {
   }
 };
 
-const roleModel = model<Role, RoleModel>('role', roleSchema);
+const roleModel = model<Role, RoleModel>('Role', roleSchema);
 export default roleModel;

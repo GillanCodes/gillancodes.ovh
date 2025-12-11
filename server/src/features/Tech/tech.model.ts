@@ -29,5 +29,5 @@ let techSchema = new Schema<Tech>({
 }, {timestamps: true});
 
 // Model
-const techModel = model<Tech>('tech', techSchema);
+const techModel = model<Tech>('Tech', techSchema);
 export default techModel;

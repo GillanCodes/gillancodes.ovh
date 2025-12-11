@@ -29,7 +29,7 @@ let userSchema = new Schema<User>({
   },
   role: {
           type: Schema.Types.ObjectId,
-          ref: "role",
+          ref: "Role",
           required: true
   }
 }, {timestamps: true});
@@ -67,5 +67,5 @@ userSchema.statics.checkPassword = async function (password:string, id:string): 
 }
 
 // Model
-const userModel = model<User, UserModel>('user', userSchema);
+const userModel = model<User, UserModel>('User', userSchema);
 export default userModel;

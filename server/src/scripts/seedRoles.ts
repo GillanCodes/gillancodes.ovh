@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 import Role from '../features/Role/role.model';
 import { Permission } from '../features/Permission/permission.types';
+import config from "../config/config";
 
 async function seedRoles() {
         try {
-                await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/yourdb');
+                await mongoose.connect(config.DB_CONNECT_STRING);
 
                 // Create admin role with all permissions
                 const adminRole = await Role.findOne({ name: 'admin' });

@@ -37,7 +37,7 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
   const { username, password }: { username: string; password: string } = req.body;
   try {
     const formatedUsername = username.toLocaleLowerCase().split(" ").join("_");
-    const user = await userModel.create({ username: formatedUsername, password });
+    const user = await userModel.create({ username: formatedUsername, password, role: "693aba33ec6338be093f7dbe"});
     res.status(201).json({ user: user._id });
     return;
   } catch (error:any) {

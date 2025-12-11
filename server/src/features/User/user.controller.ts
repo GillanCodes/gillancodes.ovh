@@ -10,7 +10,7 @@ export const getUserById = async (req:Request, res:Response): Promise<void> => {
   const { id } = req.params;
   if (!isValidObjectId(id)) res.send("Error: not valid id");
 
-  let user = await userModel.findById(id).select('-password');
+  let user = await userModel.findById(id).select('-password').populate('role');
   if (isEmpty(user)) res.send("Error: No user Found")
   res.status(200).send(user);
   
