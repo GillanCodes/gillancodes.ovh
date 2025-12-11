@@ -1,0 +1,19 @@
+// @use "bulma/sass" with (
+//   $family-primary: '"atwriter", monospace',
+//   $white: #E0C9A6,
+//   $white-bis: #E0C9A6,
+//   $white-ter: #E0C9A6,
+// );
+
+@use "bulma/sass";
+@use 'modules/toasts';
+
+// @font-face {
+//  font-family: atwriter;
+//  src: url("../../public/fonts/OldNewspaperTypes.ttf");
+// }
+
+* {
+  margin: 0;
+}
+

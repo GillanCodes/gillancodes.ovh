@@ -1,0 +1,28 @@
+[
+        {
+                "name": "admin",
+                "permissions": [
+                        "admin_bypass"
+                ]
+        },
+        {
+                "name": "mod",
+                "permissions": [
+                        "tech_get",
+                        "tech_edit",
+                        "tech_delete",
+                        "tech_create"
+                ]
+        },
+        {
+                "name": "user",
+                "permissions": [
+                        "tech_get"
+                ]
+        },
+        {
+                "name": "guess",
+                "permissions": []
+
+        }
+]

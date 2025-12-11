@@ -1,0 +1,42 @@
+.techno {
+  border-radius: 7px 7px 7px 7px;
+  font-size: 18px;
+  font-weight: 600;
+
+  .body {
+    padding: .5em;
+  }
+
+  progress {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+
+    border-radius: 0 0 7px 7px;
+    border: none;
+    height: 5px;
+    margin: 0;
+    padding: 0;
+
+    --progress-color: #3b82f6; /* fallback */
+
+  }
+
+  /* track */
+  progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 8px;
+  }
+
+  /* value (Webkit browsers) */
+  progress::-webkit-progress-value {
+    background-color: var(--progress-color);
+    border-radius: 8px;
+  }
+
+  /* Firefox */
+  progress::-moz-progress-bar {
+    background-color: var(--progress-color);
+    border-radius: 8px;
+  }
+}

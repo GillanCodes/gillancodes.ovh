@@ -1,0 +1,14 @@
+/client/dist/
+/client/node_modules/
+
+/server/dist/
+/server/node_modules/
+/server/uploads/
+/server/src/.env
+
+/common/dist/
+
+/dist/
+
+package-lock.json
+node_modules
