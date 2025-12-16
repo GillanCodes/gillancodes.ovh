@@ -9,7 +9,16 @@ export enum Permission {
         USER_EDIT = 'user_edit',
         USER_DELETE = 'user_delete',
 
-        ADMIN_CHANGE_USER_ROLE = 'admin_change_user_role'
+
+        ROLE_GET = "role_get",
+        ROLE_CREATE = "role_create",
+        ROLE_EDIT = "role_edit",
+        ROLE_DELETE = "role_delete",
+        ROLE_SYNC = "role_sync",
+
+        ADMIN_CHANGE_USER_ROLE = 'admin_change_user_role',
+        ADMIN_BYPASS = "admin_bypass",
+
 }
 
 export const ALL_PERMISSIONS = Object.values(Permission);
