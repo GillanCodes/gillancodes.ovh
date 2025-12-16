@@ -4,6 +4,7 @@ import config from "../../config/config";
 import userModel from "../User/user.model";
 import { User } from "@this/common/class/User";
 import { signInErrors, signUpErrors } from "./auth.error";
+import roleModel from "../Role/role.model";
 
 /**
  *  @param {number} maxAge Define the cookie maxAge
@@ -11,44 +12,48 @@ import { signInErrors, signUpErrors } from "./auth.error";
 const maxAge: number = 3 * 21 * 60 * 60 * 1000;
 
 const createToken = (id: string) => {
-  return sign({ id }, config.JWT_TOKEN as string, {
-    expiresIn: maxAge,
-  });
+        return sign({ id }, config.JWT_TOKEN as string, {
+                expiresIn: maxAge,
+        });
 }
 
 export const signIn = async (req: Request, res: Response): Promise<void> => {
-  const { username, password }: { username: string; password: string } = req.body;
-  try {
-    const formatedUsername = username.toLocaleLowerCase().split(" ").join("_");
-    const user: User = await userModel.login(formatedUsername, password);
-    const UID: string = user._id!.toString();
-    const token: string = createToken(UID);
-    res.cookie("auth", token, { httpOnly: true, maxAge });
-    res.status(201).json({ user });
-    return;
-  } catch (error:any) {
-    const errors = signInErrors(error);
-    res.status(200).send({errors});
-    return;
-  }
+        const { username, password }: { username: string; password: string } = req.body;
+        try {
+                const formatedUsername = username.toLocaleLowerCase().split(" ").join("_");
+                const user: User = await userModel.login(formatedUsername, password);
+                const UID: string = user._id!.toString();
+                const token: string = createToken(UID);
+                res.cookie("auth", token, { httpOnly: true, maxAge });
+                res.status(201).json({ user });
+                return;
+        } catch (error: any) {
+                const errors = signInErrors(error);
+                res.status(200).send({ errors });
+                return;
+        }
 }
 
 export const signUp = async (req: Request, res: Response): Promise<void> => {
-  const { username, password }: { username: string; password: string } = req.body;
-  try {
-    const formatedUsername = username.toLocaleLowerCase().split(" ").join("_");
-    const user = await userModel.create({ username: formatedUsername, password, role: "693aba33ec6338be093f7dbe"});
-    res.status(201).json({ user: user._id });
-    return;
-  } catch (error:any) {
-    const errors = signUpErrors(error);
-    res.status(200).send({errors}); 
-    return;
-  }
+        const { username, password }: { username: string; password: string } = req.body;
+        try {
+                
+                const role = await roleModel.findOne({name: "user"});
+                if (!role) throw Error('user_role_not_found');
+
+                const formatedUsername = username.toLocaleLowerCase().split(" ").join("_");
+                const user = await userModel.create({ username: formatedUsername, password, role: role._id });
+                res.status(201).json({ user: user._id });
+                return;
+        } catch (error: any) {
+                const errors = signUpErrors(error);
+                res.status(200).send({ errors });
+                return;
+        }
 }
 
 export const signOut = (_req: Request, res: Response): void => {
-  res.cookie("auth", null, { httpOnly: true, maxAge: 1 });
-  res.status(200).send('logout');
-  return;
+        res.cookie("auth", null, { httpOnly: true, maxAge: 1 });
+        res.status(200).send('logout');
+        return;
 }
