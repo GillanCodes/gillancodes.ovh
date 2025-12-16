@@ -8,6 +8,8 @@ export enum Permission {
         USER_CREATE = 'user_create',
         USER_EDIT = 'user_edit',
         USER_DELETE = 'user_delete',
+
+        ADMIN_CHANGE_USER_ROLE = 'admin_change_user_role'
 }
 
 export const ALL_PERMISSIONS = Object.values(Permission);
