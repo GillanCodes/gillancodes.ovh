@@ -9,7 +9,6 @@ export enum Permission {
         USER_EDIT = 'user_edit',
         USER_DELETE = 'user_delete',
 
-
         ROLE_GET = "role_get",
         ROLE_CREATE = "role_create",
         ROLE_EDIT = "role_edit",
