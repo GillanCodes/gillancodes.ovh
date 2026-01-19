@@ -35,9 +35,13 @@ export class UserController {
                         if (username) user.username = username.toLocaleLowerCase().split(" ").join("_");
                         if (file) {
                                 var filePath = path.join(__dirname, `../../../uploads/${user.avatar}`);
-                                fs.unlink(filePath, (err: any) => {
-                                        throw new Error(err);
-                                });
+                                if (user.avatar != "default.png") {
+                                        try {
+                                                fs.unlink(filePath, () => {});
+                                        } catch(_e) {
+                                                console.log(`${res.locals.user._id} tried to delete ${user.avatar} but failed`)
+                                        }
+                                }
                                 user.avatar = file.filename;
                         }
 
